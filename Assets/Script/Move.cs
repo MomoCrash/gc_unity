@@ -78,7 +78,8 @@ public class Move : MonoBehaviour
 
         if (CanDash)
         {
-            MoveVector += new Vector3(dash * DashForce, 0, 0);
+            print("Dash");
+            MoveVector += new Vector3(DashForce, 0, 0);
             currentDashCount--;
             dashRestoreTime = Time.time + RestoreDashDalay;
             dashUseWaitTime = Time.time + .3f;
@@ -87,7 +88,7 @@ public class Move : MonoBehaviour
 
         if (CanJump)
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(0, jump * JumpForce, 0));
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(0, jump * JumpForce * (currentJumpCount/MaxJumpCount), 0));
             isJumping = true;
             currentJumpCount--;
             jumpRestoreTime = Time.time + RestoreJumpDalay;
@@ -170,9 +171,9 @@ public class Move : MonoBehaviour
             dashUseWaitTime = Time.time + dashUseWaitTime;
         }
 
-        if (isOnGround && dashRestoreTime != 0 || jumpRestoreTime != 0)
+        if (isOnGround)
         {
-            if (Time.time >= jumpRestoreTime)
+            if (jumpRestoreTime != 0 && Time.time >= jumpRestoreTime)
             {
                 currentJumpCount++;
                 canUseNextJump = true;
@@ -186,7 +187,7 @@ public class Move : MonoBehaviour
                 }
             }
 
-            if (Time.time >= dashRestoreTime)
+            if (dashRestoreTime != 0 && Time.time >= dashRestoreTime)
             {
                 currentDashCount++;
                 canUseNextDash = true;
