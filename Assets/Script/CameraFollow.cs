@@ -29,14 +29,16 @@ public class CameraFollow : MonoBehaviour
                 isShaking = false;
             }
             playerPositon.y += offSetY;
+            playerPositon.x += offSetX;
             playerPositon -= shakeTarget;
-            var moveVector = Vector3.Lerp(playerPositon, transform.position, .92f);
+            var moveVector = Vector3.Lerp(playerPositon, transform.position, .95f);
             moveVector.z = -10;
             gameObject.transform.position = moveVector;
         }
         else
         {
             playerPositon.y += offSetY;
+            playerPositon.x += offSetX;
             var moveVector = Vector3.Lerp(playerPositon, transform.position, Smooth);
             moveVector.z = -10;
             gameObject.transform.position = moveVector;
@@ -50,4 +52,5 @@ public class CameraFollow : MonoBehaviour
         isShaking = true;
         shakeEnd = Time.time + duration;
     }
+
 }

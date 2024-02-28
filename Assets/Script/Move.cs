@@ -6,46 +6,58 @@ public class Move : MonoBehaviour
 {
 
     [Header("Movement")]
-    public float MoveSpeed = 3.0f;
+    float MoveSpeed;
     public float SprintSpeed = 1.3f;
 
     [Header("Jump")]
+    int MaxJumpCount;
     public float JumpForce = 1.0f;
-    public int MaxJumpCount;
     public float RestoreJumpDalay;
     public int currentJumpCount;
 
     [Header("Dash")]
+    int MaxDashCount;
     public int DashForce;
-    public int MaxDashCount;
     public float RestoreDashDalay;
-    int currentDashCount;
+    public int currentDashCount;
+
+    [Header("Animation")]
+    Animator player_animator ;
+    SpriteRenderer player_renderer ;
 
     [Header("Debug")]
     public Vector3 MoveVector = Vector3.zero;
 
     CameraFollow cameraFollow;
 
-    bool isJumping = false;
+    public bool isJumping = false;
 
-    bool canUseNextJump = true;
-    bool canUseNextDash = true;
+    public bool canUseNextJump = true;
+    public bool canUseNextDash = true;
 
-    bool isOnGround = true;
-    bool isOnWall = false;
+    public bool isOnGround = true;
+    public bool isOnWall = false;
 
     float jumpUseWaitTime;
     float dashUseWaitTime;
 
-    float jumpRestoreTime;
     float dashRestoreTime;
 
     private void Start()
     {
         cameraFollow = FindFirstObjectByType<CameraFollow>();
+        player_animator = gameObject.GetComponent<Animator>();
+        player_renderer = gameObject.GetComponent<SpriteRenderer>();
 
-        currentJumpCount = MaxJumpCount;
-        currentDashCount = MaxDashCount;
+        var player = gameObject.GetComponent<Player>();
+
+        MoveSpeed = player.Speed;
+
+        MaxJumpCount = player.MaxJumpCount;
+        MaxDashCount = player.MaxDashCount;
+
+        currentJumpCount = player.MaxJumpCount;
+        currentDashCount = player.MaxDashCount;
     }
 
     void Update()
@@ -56,44 +68,70 @@ public class Move : MonoBehaviour
         var dash = Input.GetAxis("Dash");
         var sprint = Input.GetAxis("Sprint");
 
-        print(sprint);
-
         bool IsMoving = horz != 0;
         bool IsSprinting = isOnGround && !isJumping && IsMoving && sprint != 0;
-        bool CanDash = dash != 0 && !IsSprinting && canUseNextDash && currentDashCount > 0;
-        bool CanJump = isOnGround && jump != 0 && canUseNextJump && currentJumpCount > 0;
+        bool CanDash = isOnGround && dash != 0 && !IsSprinting && canUseNextDash && currentDashCount > 0;
+        bool CanJump = (isOnGround || isJumping) && canUseNextJump && jump != 0 && currentJumpCount > 0;
+        bool CanWallJump = !isJumping && canUseNextJump && jump != 0 && isOnWall;
+
+        print(CanJump);
+        print(CanWallJump);
 
         MoveVector = Vector3.zero;
+
+        if (horz > 0)
+        {
+            player_renderer.flipX = false ;
+        } else if (horz < 0)
+        {
+            player_renderer.flipX = true ;
+        }
 
 
         if (IsMoving)
         {
             MoveVector += new Vector3(horz * MoveSpeed, 0, 0);
+            if (!IsSprinting)
+            {
+                player_animator.SetTrigger("Walk");
+            }
         }
 
         if (IsSprinting)
         {
-            MoveVector *= (SprintSpeed * sprint);
+            MoveVector *= SprintSpeed;
+            player_animator.SetTrigger("Run");
         }
 
         if (CanDash)
         {
             print("Dash");
-            MoveVector += new Vector3(DashForce, 0, 0);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(horz * DashForce, 0, 0));
             currentDashCount--;
             dashRestoreTime = Time.time + RestoreDashDalay;
-            dashUseWaitTime = Time.time + .3f;
+            dashUseWaitTime = Time.time + .5f;
             canUseNextDash = false;
+            return;
         }
 
         if (CanJump)
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(0, jump * JumpForce * (currentJumpCount/MaxJumpCount), 0));
+            print("Jump");
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(0, jump * JumpForce * (1 + currentJumpCount/MaxJumpCount), 0));
             isJumping = true;
             currentJumpCount--;
-            jumpRestoreTime = Time.time + RestoreJumpDalay;
             jumpUseWaitTime = Time.time + .3f;
             canUseNextJump = false;
+            player_animator.SetTrigger("Jump");
+            return;
+        }
+
+        if (CanWallJump)
+        {
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(1*horz*DashForce, jump * JumpForce, 0));
+            canUseNextJump = false;
+            player_animator.SetTrigger("Jump");
+            return;
         }
 
     }
@@ -105,22 +143,6 @@ public class Move : MonoBehaviour
         RestoreUtilities();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isOnWall = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isOnWall = false;
-        }
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
@@ -129,7 +151,15 @@ public class Move : MonoBehaviour
             {
                 cameraFollow.ShakeCamera(0, 1f, .25f);
                 currentJumpCount = MaxJumpCount;
+                isJumping = false;
             }
+        } 
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            isOnWall = true;
+            isJumping = false;
+            currentJumpCount = MaxJumpCount;
+            canUseNextJump =true;
         }
     }
 
@@ -137,11 +167,11 @@ public class Move : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            if (isJumping)
-            {
-                isJumping = false;
-            }
             isOnGround = true;
+        } 
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            isOnWall = true;
         }
     }
 
@@ -151,8 +181,12 @@ public class Move : MonoBehaviour
         {
             if (isOnGround)
             {
-                isOnGround = true;
+                isOnGround = false;
             }
+        }
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            isOnWall = false;
         }
     }
 
@@ -173,19 +207,6 @@ public class Move : MonoBehaviour
 
         if (isOnGround)
         {
-            if (jumpRestoreTime != 0 && Time.time >= jumpRestoreTime)
-            {
-                currentJumpCount++;
-                canUseNextJump = true;
-                if (currentJumpCount >= MaxJumpCount)
-                {
-                    jumpRestoreTime = 0;
-                }
-                else
-                {
-                    jumpRestoreTime += Time.time + RestoreDashDalay;
-                }
-            }
 
             if (dashRestoreTime != 0 && Time.time >= dashRestoreTime)
             {
