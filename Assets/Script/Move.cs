@@ -74,7 +74,7 @@ public class Move : MonoBehaviour
         bool CanJump = (isOnGround || isJumping) && canUseNextJump && jump != 0 && currentJumpCount > 0;
         bool CanWallJump = !isJumping && canUseNextJump && jump != 0 && isOnWall;
 
-        print(CanJump);
+        print(IsMoving);
         print(CanWallJump);
 
         MoveVector = Vector3.zero;
