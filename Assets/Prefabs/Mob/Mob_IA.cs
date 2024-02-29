@@ -17,6 +17,7 @@ public class Mob_IA : MonoBehaviour
     private Rigidbody2D rb;
     private float distance;
     private bool isJumping = false;
+    private Animator animator;
 
     public bool grounded;
 
@@ -24,6 +25,7 @@ public class Mob_IA : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -32,19 +34,27 @@ public class Mob_IA : MonoBehaviour
         distance = Vector2.Distance(transform.position, Player.transform.position);
         Vector2 direction = (Player.transform.position - transform.position).normalized;
 
+        // Tourner le monstre vers le joueur
+        if (direction.x > 0)
+        {
+            transform.localScale = new Vector3(5, 5, 5); // Orientation vers la droite
+        }
+        else if (direction.x < 0)
+        {
+            transform.localScale = new Vector3(-5, 5, 5); // Orientation vers la gauche
+        }
+
         if (distance < distanceBetween)
         {
             // Déplacement vers le joueur
             transform.position = Vector2.MoveTowards(transform.position, Player.transform.position, speed * Time.deltaTime);
 
-
             RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, rayLength, obstacleLayer);
             if (hit.collider != null && !isJumping)
             {
-                // Appliquer la force de saut une seule fois
+                
                 rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-                isJumping = true; // Le monstre est maintenant en train de sauter
-                print(isJumping);
+                isJumping = true; 
             }
         }
     }

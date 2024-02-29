@@ -10,10 +10,11 @@ public class Mob_Flying : MonoBehaviour
 
     private float timeSinceLastPathfindingUpdate = 0f;
     private Vector3 targetPosition;
+    private Animator animator;
 
     void Start()
     {
-        // Initialise le pathfinding immédiatement
+        animator = GetComponent<Animator>();
         UpdatePathfinding();
     }
 
@@ -37,15 +38,10 @@ public class Mob_Flying : MonoBehaviour
 
     void MoveTowardsTarget()
     {
-        // Arrêtez le mouvement si le mob est suffisamment proche du joueur
         if (Vector3.Distance(transform.position, targetPosition) < distanceToStop) return;
 
-        // Déplacez le mob vers le joueur
         Vector3 direction = (targetPosition - transform.position).normalized;
         transform.position += direction * speed * Time.deltaTime;
-
-        // Tournez le mob vers le joueur
-        Quaternion lookRotation = Quaternion.LookRotation(Vector3.forward, direction);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, rotationSpeed * Time.deltaTime);
     }
+
 }
