@@ -4,24 +4,22 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
-
     [Header("Movement")]
-    float MoveSpeed;
     public float SprintSpeed = 1.3f;
+    float MoveSpeed;
 
     [Header("Jump")]
-    int MaxJumpCount;
     public float JumpForce = 1.0f;
     public float RestoreJumpDalay;
     public int currentJumpCount;
+    int MaxJumpCount;
 
     [Header("Dash")]
-    int MaxDashCount;
     public int DashForce;
     public float RestoreDashDalay;
     public int currentDashCount;
+    int MaxDashCount;
 
-    [Header("Animation")]
     Animator player_animator ;
     SpriteRenderer player_renderer ;
 
