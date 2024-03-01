@@ -47,6 +47,7 @@ public class Mob_IA : MonoBehaviour
         if (distance < distanceBetween)
         {
             // Déplacement vers le joueur
+            animator.SetTrigger("Run");
             transform.position = Vector2.MoveTowards(transform.position, Player.transform.position, speed * Time.deltaTime);
 
             RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, rayLength, obstacleLayer);
@@ -56,6 +57,10 @@ public class Mob_IA : MonoBehaviour
                 rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
                 isJumping = true; 
             }
+        }
+        else
+        {
+            animator.SetTrigger("NotRunning");
         }
     }
 

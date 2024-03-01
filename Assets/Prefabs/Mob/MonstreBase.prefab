@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 7262192153197459489}
   - component: {fileID: 2388353397506509715}
   - component: {fileID: 8609764147298803614}
+  - component: {fileID: 3029288240683769472}
   m_Layer: 3
   m_Name: MonstreBase
   m_TagString: Untagged
@@ -62,8 +63,8 @@ Transform:
   m_GameObject: {fileID: 8181104196980539683}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.88, y: -3.35, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: 2.595743, y: -0.9135814, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1763552310650553989}
@@ -110,7 +111,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -7802691104615874314, guid: dc02f77872c7086478124a5f0924850a, type: 3}
+  m_Sprite: {fileID: 6373048116405451881, guid: cf7dfacb9e0a2064db29b076e892f833, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -134,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  speed: 2
+  speed: 5
   distanceBetween: 8
   currentHealth: 0
   attack: 0
@@ -145,7 +146,7 @@ MonoBehaviour:
     m_Bits: 64
   GroundMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   rayLength: 1
   grounded: 0
 --- !u!58 &4114221753506347109
@@ -183,7 +184,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: -0.007155657, y: 0.0002425909}
-  m_Radius: 0.38908792
+  m_Radius: 0.25
 --- !u!50 &7262192153197459489
 Rigidbody2D:
   serializedVersion: 4
@@ -246,7 +247,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.25
+  m_Radius: 0.2
 --- !u!114 &8609764147298803614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,3 +260,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6366ee97f6b541449155028b9487355a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &3029288240683769472
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8181104196980539683}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d8f9716c71210444eb06c56ccbf1beee, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

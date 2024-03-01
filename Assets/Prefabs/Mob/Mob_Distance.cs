@@ -16,6 +16,7 @@ public class Mob_Distance : MonoBehaviour
 
     private Rigidbody2D rb;
     private float distance;
+    private Animator animator;
 
     public bool grounded;
 
@@ -23,6 +24,7 @@ public class Mob_Distance : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -33,16 +35,29 @@ public class Mob_Distance : MonoBehaviour
 
 
         Vector2 direction = (Player.transform.position - transform.position).normalized;
+        if (direction.x > 0)
+        {
+            transform.localScale = new Vector3(5, 5, 5); // Orientation vers la droite
+        }
+        else if (direction.x < 0)
+        {
+            transform.localScale = new Vector3(-5, 5, 5); // Orientation vers la gauche
+        }
 
         if (distance < distanceBetween)
         {
-            
+            animator.SetTrigger("Run");
             transform.position = Vector2.MoveTowards(transform.position, Player.transform.position, -speed * Time.deltaTime);
         }
         else if (distance > distanceBetween)
         {
-            
+            animator.SetTrigger("Run");
             transform.position = Vector2.MoveTowards(transform.position, Player.transform.position, speed * Time.deltaTime);
+        }
+
+        else
+        {
+            animator.SetTrigger("NotRunning");
         }
 
         
