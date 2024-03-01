@@ -7,53 +7,81 @@ public class NPC : MonoBehaviour
 {
     public float MaxMoveAround;
     public float DelayMove;
+    [Range(0f, 1f)]
+    public float Speed;
 
     float currentMovedDistance;
     float startPositionX;
 
     bool canInteract = false;
+    bool generateNewMovement;
 
     Vector2 nextMove = Vector2.zero;
 
     private void Start()
     {
-        startPositionX = transform.position.x;
+        StartCoroutine(MoveDelayer());
+    }
+
+    private void FixedUpdate()
+    {
+
+        if (generateNewMovement)
+        {
+
+            startPositionX = transform.position.x;
+            float maxNextMove = (startPositionX + MaxMoveAround) - currentMovedDistance;
+            var nextMoveForce = Random.Range(-maxNextMove, maxNextMove);
+            nextMove = new Vector2(nextMoveForce, 0);
+            generateNewMovement = false;
+            if (nextMoveForce < 0)
+            {
+                GetComponent<SpriteRenderer>().flipX = true;
+            } else
+            {
+                GetComponent<SpriteRenderer>().flipX = false;
+            }
+
+        }
+        else
+        {
+
+            var currentPos = new Vector2(transform.position.x, 0);
+            var distanceToNext = (nextMove - currentPos);
+
+            if (distanceToNext.x < 1f)
+            {
+                GetComponent<Animator>().SetBool("Walk", false);
+            } else
+            {
+                GetComponent<Animator>().SetBool("Walk", true);
+                transform.Translate(distanceToNext * Time.deltaTime / DelayMove);
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        canInteract = true;
+        if (collision.CompareTag("Player"))
+        {
+            canInteract = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        canInteract = false;
+        if (collision.CompareTag("Player"))
+        {
+            canInteract = false;
+        }
     }
 
     IEnumerator MoveDelayer()
     {
 
-        while (true)
-        {
-
-            float moveTime = 0;
-            if (nextMove == Vector2.zero || moveTime >= DelayMove)
-            {
-
-                float maxNextMove = (startPositionX+MaxMoveAround) - currentMovedDistance;
-                nextMove = new Vector2(Random.Range(-maxNextMove, maxNextMove), 0);
-
-            }
-            else
-            {
-
-                moveTime += DelayMove / 60;
-                transform.position = Vector2.Lerp(nextMove, transform.position, .95f);
-                yield return new WaitForSeconds(DelayMove/60);
-
-            }
-
-        }
+        yield return new WaitForSeconds(DelayMove);
+        generateNewMovement = true;
+        StartCoroutine(MoveDelayer());
 
     }
 
