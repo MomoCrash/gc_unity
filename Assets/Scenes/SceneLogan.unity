@@ -611,7 +611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb3cecc307df21d42afa322193e66ae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotPrefab: {fileID: 909565761811515774, guid: a56724878c317a04a8a673b49318012a, type: 3}
+  slotPrefab: {fileID: 1704680809022827340, guid: fca93f0c18ebc4b469f2a952c932b418, type: 3}
   slotCanvas: {fileID: 1812243991}
 --- !u!114 &2147370665
 MonoBehaviour:
@@ -726,7 +726,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
