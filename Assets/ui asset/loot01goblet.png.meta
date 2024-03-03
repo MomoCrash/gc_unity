@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      loot01goblet_0: 9055147229147414880
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

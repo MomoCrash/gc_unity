@@ -416,7 +416,20 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Zombie_Big_0: -7720320298343415186
+      Zombie_Big_1: -8292712222359684483
+      Zombie_Big_10: -8961123959811836201
+      Zombie_Big_11: -2454059139091179
+      Zombie_Big_12: -8837445853523371395
+      Zombie_Big_2: 3065499834690606210
+      Zombie_Big_3: 7610893299748992073
+      Zombie_Big_4: 5317587595099616284
+      Zombie_Big_5: 7530325917160000489
+      Zombie_Big_6: 2523130754372818300
+      Zombie_Big_7: 8192241974293271620
+      Zombie_Big_8: -1290900696356400376
+      Zombie_Big_9: -7188420375308024573
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

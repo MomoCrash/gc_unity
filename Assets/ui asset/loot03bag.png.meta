@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      loot03bag_0: -8869865640657269007
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

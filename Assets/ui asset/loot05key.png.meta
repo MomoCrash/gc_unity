@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      loot05key_0: -7925015459732788085
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

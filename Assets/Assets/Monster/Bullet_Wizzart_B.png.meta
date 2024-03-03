@@ -344,7 +344,17 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Bullet_Wizzart_B_0: -5057014764071538461
+      Bullet_Wizzart_B_1: 5511616949406853603
+      Bullet_Wizzart_B_2: -1989316007518335608
+      Bullet_Wizzart_B_3: 8978426668929168728
+      Bullet_Wizzart_B_4: 2419267395329940674
+      Bullet_Wizzart_B_5: 5582628030974357837
+      Bullet_Wizzart_B_6: 379679570816809986
+      Bullet_Wizzart_B_7: 3797895462197245549
+      Bullet_Wizzart_B_8: -4615906406118516390
+      Bullet_Wizzart_B_9: 4581192699187167286
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

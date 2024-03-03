@@ -656,7 +656,30 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Pig_Small_0: -2341252599803839161
+      Pig_Small_1: -2718642677882412305
+      Pig_Small_10: -3048095906414715830
+      Pig_Small_11: -6693188184130267687
+      Pig_Small_12: -8785229587297546329
+      Pig_Small_13: 8803940316516559905
+      Pig_Small_14: 1637507263186096544
+      Pig_Small_15: -8330783253073408608
+      Pig_Small_16: 6107267035932109033
+      Pig_Small_17: -9076572177453285787
+      Pig_Small_18: -8473667655104019801
+      Pig_Small_19: -2932458170385731488
+      Pig_Small_2: -7169342805983331489
+      Pig_Small_20: 5220246693186226973
+      Pig_Small_21: 8981067929074589625
+      Pig_Small_22: 7098626309315190289
+      Pig_Small_3: 5298092957837955050
+      Pig_Small_4: -417308919067292160
+      Pig_Small_5: 5801372345867083893
+      Pig_Small_6: -1717475514074738223
+      Pig_Small_7: 5166846410961787136
+      Pig_Small_8: 9066378223389031135
+      Pig_Small_9: -9015896644282482518
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

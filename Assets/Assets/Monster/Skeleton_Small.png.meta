@@ -608,7 +608,28 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Skeleton_Small_0: -3941958626931581775
+      Skeleton_Small_1: -774606568357625961
+      Skeleton_Small_10: -6119590955535588192
+      Skeleton_Small_11: -5083648487560754862
+      Skeleton_Small_12: 5506854587039400412
+      Skeleton_Small_13: 588494644513124063
+      Skeleton_Small_14: -1969360644798468405
+      Skeleton_Small_15: -2096851396592908
+      Skeleton_Small_16: -1638129433503134749
+      Skeleton_Small_17: 8760726980336475312
+      Skeleton_Small_18: -6025941536260889058
+      Skeleton_Small_19: 1817002202486745166
+      Skeleton_Small_2: -8621961818889318473
+      Skeleton_Small_20: 7575609818777981415
+      Skeleton_Small_3: 427670665917427538
+      Skeleton_Small_4: -737115353902892146
+      Skeleton_Small_5: -2991192735275247952
+      Skeleton_Small_6: -3579617545817291528
+      Skeleton_Small_7: 4745315606081483373
+      Skeleton_Small_8: 213910112782882992
+      Skeleton_Small_9: 6450213391637213748
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

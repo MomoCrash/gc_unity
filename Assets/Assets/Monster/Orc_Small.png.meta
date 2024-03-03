@@ -656,7 +656,30 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Orc_Small_0: -5258091762031745724
+      Orc_Small_1: 3909063580794007388
+      Orc_Small_10: 4944343685182862686
+      Orc_Small_11: -8704823567722250860
+      Orc_Small_12: -8766161138124458944
+      Orc_Small_13: 2839124368821856883
+      Orc_Small_14: -4659042218818329670
+      Orc_Small_15: -943636230653486165
+      Orc_Small_16: 465783719140770224
+      Orc_Small_17: 7680544291337648999
+      Orc_Small_18: -1682408005295016765
+      Orc_Small_19: 3601108795586088926
+      Orc_Small_2: 6626274945994053163
+      Orc_Small_20: 3969620847147758139
+      Orc_Small_21: -8175983624633720645
+      Orc_Small_22: 6695105460609284069
+      Orc_Small_3: 8595194817025934318
+      Orc_Small_4: 2846178350972408177
+      Orc_Small_5: 5680435023429768139
+      Orc_Small_6: -3333877604008923191
+      Orc_Small_7: 8005915554394352666
+      Orc_Small_8: -7415541133779175223
+      Orc_Small_9: -4879746488201453397
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

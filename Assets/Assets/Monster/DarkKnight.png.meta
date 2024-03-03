@@ -656,7 +656,30 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      DarkKnight_0: 824635215509593453
+      DarkKnight_1: 3602430193687246736
+      DarkKnight_10: -4667232282571944761
+      DarkKnight_11: 3573715362257333862
+      DarkKnight_12: -4167595282723484959
+      DarkKnight_13: -6854472082152869081
+      DarkKnight_14: 8360523986016870777
+      DarkKnight_15: -8858308031903773989
+      DarkKnight_16: 4967928647903589411
+      DarkKnight_17: 7376772152959487796
+      DarkKnight_18: 728018789760086831
+      DarkKnight_19: -7673270483867895470
+      DarkKnight_2: -6923740119856145308
+      DarkKnight_20: -8728734446196156964
+      DarkKnight_21: 4890408597020303470
+      DarkKnight_22: 1741101389818760801
+      DarkKnight_3: -7888572027569737909
+      DarkKnight_4: 4469707333657897994
+      DarkKnight_5: 8812918150279519865
+      DarkKnight_6: -7209267204117866403
+      DarkKnight_7: -2865679857307726718
+      DarkKnight_8: 6544911358993960388
+      DarkKnight_9: -235797444749228661
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      loot06chest_0: 8949896054839241055
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
