@@ -4,39 +4,226 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
+    [Header("Movement")]
+    public float SprintSpeed = 1.3f;
+    float MoveSpeed;
 
-    public float Force = 1.0f;
+    [Header("Jump")]
     public float JumpForce = 1.0f;
+    public float RestoreJumpDalay;
+    public int currentJumpCount;
+    int MaxJumpCount;
 
-    bool isJumping = false;
+    [Header("Dash")]
+    public int DashForce;
+    public float RestoreDashDalay;
+    public int currentDashCount;
+    int MaxDashCount;
+
+    Animator player_animator ;
+    SpriteRenderer player_renderer ;
+
+    [Header("Debug")]
+    public Vector3 MoveVector = Vector3.zero;
+
+    CameraFollow cameraFollow;
+
+    public bool isJumping = false;
+
+    public bool canUseNextJump = true;
+    public bool canUseNextDash = true;
+
+    public bool isOnGround = true;
+    public bool isOnWall = false;
+
+    float jumpUseWaitTime;
+    float dashUseWaitTime;
+
+    float dashRestoreTime;
+
+    private void Start()
+    {
+        cameraFollow = FindFirstObjectByType<CameraFollow>();
+        player_animator = gameObject.GetComponent<Animator>();
+        player_renderer = gameObject.GetComponent<SpriteRenderer>();
+
+        var player = gameObject.GetComponent<Player>();
+
+        MoveSpeed = player.Speed;
+
+        MaxJumpCount = player.MaxJumpCount;
+        MaxDashCount = player.MaxDashCount;
+
+        currentJumpCount = player.MaxJumpCount;
+        currentDashCount = player.MaxDashCount;
+    }
 
     void Update()
     {
 
         var horz = Input.GetAxis("Horizontal");
         var jump = Input.GetAxis("Jump");
+        var dash = Input.GetAxis("Dash");
+        var sprint = Input.GetAxis("Sprint");
 
-        print(isJumping);
+        bool IsMoving = horz != 0;
+        bool IsSprinting = isOnGround && !isJumping && IsMoving && sprint != 0;
+        bool CanDash = isOnGround && dash != 0 && !IsSprinting && canUseNextDash && currentDashCount > 0;
+        bool CanJump = (isOnGround || isJumping) && canUseNextJump && jump != 0 && currentJumpCount > 0;
+        bool CanWallJump = !isJumping && canUseNextJump && jump != 0 && isOnWall;
 
-        if (horz != 0)
+        MoveVector = Vector3.zero;
+
+        if (horz > 0)
         {
-            gameObject.transform.Translate(new Vector3(horz * Force * Time.deltaTime, 0, 0));
-        }
-        if (jump != 0 && !isJumping)
+            player_renderer.flipX = false ;
+        } else if (horz < 0)
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(0, jump * JumpForce, 0));
-            isJumping = true;
+            player_renderer.flipX = true ;
         }
 
+
+        if (IsMoving)
+        {
+            MoveVector += new Vector3(horz * MoveSpeed, 0, 0);
+            if (!IsSprinting)
+            {
+                player_animator.SetTrigger("Walk");
+            }
+        }
+
+        if (IsSprinting)
+        {
+            MoveVector *= SprintSpeed;
+            player_animator.SetTrigger("Run");
+        }
+
+        if (CanDash)
+        {
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(horz * DashForce, 1, 0));
+            currentDashCount--;
+            dashRestoreTime = Time.time + RestoreDashDalay;
+            dashUseWaitTime = Time.time + .5f;
+            canUseNextDash = false;
+            return;
+        }
+
+        if (CanJump)
+        {
+            Jump(new Vector3(0, jump * JumpForce * (1 + currentJumpCount / MaxJumpCount), 0), .3f);
+            return;
+        }
+
+        if (CanWallJump)
+        {
+            Jump(new Vector3(horz * DashForce * 1, jump * JumpForce * 2, 0), .3f);
+            return;
+        }
+
+    }
+
+    private void Jump(Vector3 force, float waitToNextJump)
+    {
+
+        // Applied a force to the player
+        gameObject.GetComponent<Rigidbody2D>().AddForce(force);
+
+        // Update states of ground and wall detector to prevent collision bug
+        isOnGround = false;
+        isOnWall = false;
+        isJumping = true;
+        canUseNextJump = false;
+
+        // Set the delay to use the next jump
+        currentJumpCount--;
+        jumpUseWaitTime = Time.time + waitToNextJump;
+        player_animator.SetTrigger("Jump");
+
+    }
+
+    private void FixedUpdate()
+    {
+        transform.Translate(MoveVector * Time.deltaTime);
+
+        RestoreUtilities();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            if (isJumping)
+            {
+                cameraFollow.ShakeCamera(0, 1f, .25f);
+                currentJumpCount = MaxJumpCount;
+                isJumping = false;
+            }
+        } 
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            isOnWall = true;
+            isJumping = false;
+            currentJumpCount = MaxJumpCount;
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            if (isJumping)
+            isOnGround = true;
+        } 
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            isOnWall = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            if (isOnGround)
             {
-                isJumping = false;
+                isOnGround = false;
+            }
+        }
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            isOnWall = false;
+        }
+    }
+
+    void RestoreUtilities()
+    {
+
+        if (Time.time >= jumpUseWaitTime)
+        {
+            canUseNextJump = true;
+            jumpUseWaitTime = Time.time + jumpUseWaitTime;
+        }
+
+        if (Time.time >= dashUseWaitTime)
+        {
+            canUseNextDash = true;
+            dashUseWaitTime = Time.time + dashUseWaitTime;
+        }
+
+        if (isOnGround)
+        {
+
+            if (dashRestoreTime != 0 && Time.time >= dashRestoreTime)
+            {
+                currentDashCount++;
+                canUseNextDash = true;
+                if (currentDashCount >= MaxDashCount)
+                {
+                    dashRestoreTime = 0;
+                }
+                else
+                {
+                    dashRestoreTime += Time.time + RestoreDashDalay;
+                }
             }
         }
     }

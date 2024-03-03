@@ -1,9 +1,16 @@
 fileFormatVersion: 2
 guid: 038b3bf0f22d4034c9ea7f3df612d4af
+AssetOrigin:
+  serializedVersion: 1
+  productId: 260209
+  packageName: 2D Hand-painted Magical Rocks and Stones Free
+  packageVersion: 1.0.0
+  assetPath: Assets/2D_Handpainted_Magical_Rocks_and_Stones/Sprites/Rune_4.png
+  uploadId: 600153
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -20,10 +27,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -62,6 +71,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -112,16 +123,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 260209
-  packageName: 2D Hand-painted Magical Rocks and Stones Free
-  packageVersion: 1.0.0
-  assetPath: Assets/2D_Handpainted_Magical_Rocks_and_Stones/Sprites/Rune_4.png
-  uploadId: 600153
