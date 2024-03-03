@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Tutorial : MonoBehaviour
 {
+
     public string tutoText;
     public string tutoSubText;
 
@@ -18,8 +19,8 @@ public class Tutorial : MonoBehaviour
     IEnumerator ShowTutoText()
     {
 
-        var textMeshField = GameObject.Find("Tutorial Text").GetComponent<TextMeshPro>();
-        var subTextMeshField = GameObject.Find("Tutorial SubText").GetComponent<TextMeshPro>();
+        var textMeshField = GameObject.Find("Tutorial Text").GetComponent<TextMeshProUGUI>();
+        var subTextMeshField = GameObject.Find("Tutorial SubText").GetComponent<TextMeshProUGUI>();
 
         textMeshField.text = tutoText;
         subTextMeshField.text = tutoSubText;

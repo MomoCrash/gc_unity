@@ -72,9 +72,6 @@ public class Move : MonoBehaviour
         bool CanJump = (isOnGround || isJumping) && canUseNextJump && jump != 0 && currentJumpCount > 0;
         bool CanWallJump = !isJumping && canUseNextJump && jump != 0 && isOnWall;
 
-        print(IsMoving);
-        print(CanWallJump);
-
         MoveVector = Vector3.zero;
 
         if (horz > 0)
@@ -103,8 +100,7 @@ public class Move : MonoBehaviour
 
         if (CanDash)
         {
-            print("Dash");
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(horz * DashForce, 0, 0));
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(horz * DashForce, 1, 0));
             currentDashCount--;
             dashRestoreTime = Time.time + RestoreDashDalay;
             dashUseWaitTime = Time.time + .5f;
@@ -114,23 +110,34 @@ public class Move : MonoBehaviour
 
         if (CanJump)
         {
-            print("Jump");
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(0, jump * JumpForce * (1 + currentJumpCount/MaxJumpCount), 0));
-            isJumping = true;
-            currentJumpCount--;
-            jumpUseWaitTime = Time.time + .3f;
-            canUseNextJump = false;
-            player_animator.SetTrigger("Jump");
+            Jump(new Vector3(0, jump * JumpForce * (1 + currentJumpCount / MaxJumpCount), 0), .3f);
             return;
         }
 
         if (CanWallJump)
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(1*horz*DashForce, jump * JumpForce, 0));
-            canUseNextJump = false;
-            player_animator.SetTrigger("Jump");
+            Jump(new Vector3(horz * DashForce * 1, jump * JumpForce * 2, 0), .3f);
             return;
         }
+
+    }
+
+    private void Jump(Vector3 force, float waitToNextJump)
+    {
+
+        // Applied a force to the player
+        gameObject.GetComponent<Rigidbody2D>().AddForce(force);
+
+        // Update states of ground and wall detector to prevent collision bug
+        isOnGround = false;
+        isOnWall = false;
+        isJumping = true;
+        canUseNextJump = false;
+
+        // Set the delay to use the next jump
+        currentJumpCount--;
+        jumpUseWaitTime = Time.time + waitToNextJump;
+        player_animator.SetTrigger("Jump");
 
     }
 
@@ -157,7 +164,6 @@ public class Move : MonoBehaviour
             isOnWall = true;
             isJumping = false;
             currentJumpCount = MaxJumpCount;
-            canUseNextJump =true;
         }
     }
 

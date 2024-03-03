@@ -386,8 +386,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  Smooth: 0.871
-  offSetY: 1.62
+  Smooth: 0.935
+  offSetY: 2.44
   offSetX: 0
 --- !u!81 &1382176582914804184
 AudioListener:
