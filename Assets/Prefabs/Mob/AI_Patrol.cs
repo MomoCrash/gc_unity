@@ -41,6 +41,10 @@ public class AI_Patrol : MonoBehaviour
             currentPoint = PointB.transform;
         }
     }
+    public void mobDeath()
+    {
+        animator.SetTrigger("Death");
+    }
 
     private void flip()
     {

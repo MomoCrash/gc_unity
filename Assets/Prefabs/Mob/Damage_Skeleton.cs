@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mob_Damage : MonoBehaviour
+public class Skeleton_Damage : MonoBehaviour
 {
-    public Mob_IA MobIA;
+    public AI_Patrol MobIA;
     public float currentHealth = 100;
     public float MaxHealth = 100;
     public int Choosedamage;
@@ -24,6 +24,7 @@ public class Mob_Damage : MonoBehaviour
     }
     public void MobTakeDamage(int damage)
     {
+        print("takeDaamge");
         currentHealth -= damage;
         healthBar.UpdateHealthBar(currentHealth, MaxHealth);
         print(currentHealth);
@@ -43,6 +44,7 @@ public class Mob_Damage : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            print("InCollider");
             MobTakeDamage(Choosedamage);
         }
     }

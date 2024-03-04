@@ -7,10 +7,10 @@ public class Mob_IA : MonoBehaviour
     public float speed;
     public float distanceBetween;
     public float attack;
-    public float jumpForce = 1f; // Force de saut à régler
-    public LayerMask obstacleLayer; // Layer pour identifier les obstacles
+    public float jumpForce = 1f;
+    public LayerMask obstacleLayer; 
     public LayerMask GroundMask;
-    public float rayLength = 1f; // Longueur du rayon pour détecter les obstacles
+    public float rayLength = 1f;
 
     private Rigidbody2D rb;
     private float distance;
@@ -71,8 +71,11 @@ public class Mob_IA : MonoBehaviour
         Gizmos.DrawLine(transform.position, transform.position + new Vector3(direction.x, direction.y, 0) * rayLength);
     }
 
+    public void mobDeath()
+    {
+        animator.SetTrigger("Death");
+    }
 
- 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
