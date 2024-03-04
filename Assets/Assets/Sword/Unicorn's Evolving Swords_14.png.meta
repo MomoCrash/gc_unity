@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Unicorn's Evolving Swords_14_0: -7028097757964962696
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
