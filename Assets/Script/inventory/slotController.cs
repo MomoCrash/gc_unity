@@ -15,6 +15,10 @@ public class slotController : MonoBehaviour, IBeginDragHandler, IDragHandler ,IE
 
     [SerializeField] private TextMeshProUGUI numberText;
 
+    [Header("Prefabs")]
+    [SerializeField] private Transform dragPrefab;
+    private GameObject dragObject;
+
     private inventoryDisplay display;
 
     public void Init(int _id, inventoryDisplay _display)
@@ -38,23 +42,26 @@ public class slotController : MonoBehaviour, IBeginDragHandler, IDragHandler ,IE
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("Begin : " + slotID);
+        dragObject = Instantiate(dragPrefab, transform.position, Quaternion.identity, transform).gameObject;
+        Image _img = dragObject.GetComponent<Image>();
+        _img.sprite = iconSprite;
+        _img.color = iconSprite == null ? new Color(0, 0, 0, 0) : Color.white;
+
+        RectTransform _rect = (RectTransform)(dragObject.transform);
+        RectTransform _slotRect = (RectTransform)transform;
+
+        _rect.sizeDelta = _slotRect.sizeDelta;
+
+        dragObject.GetComponent<Canvas>().overrideSorting = true;
+
+        display.StartDrag(slotID);
     }
 
-    public void OnDrag(PointerEventData eventData)
-    {
-        Debug.Log("Drag : " + slotID);
-    }
+    public void OnDrag(PointerEventData eventData) => dragObject.transform.position = eventData.position;
 
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        Debug.Log("End : " + slotID);
-    }
+    public void OnEndDrag(PointerEventData eventData) => Destroy(dragObject);
 
-    public void OnDrop(PointerEventData eventData)
-    {
-        Debug.Log("Drop : " + slotID);
-    }
+    public void OnDrop(PointerEventData eventData) => display.EndDrag(slotID);
 
     #endregion
 }

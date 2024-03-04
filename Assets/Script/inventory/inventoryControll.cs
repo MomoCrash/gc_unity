@@ -19,6 +19,12 @@ public class inventoryControll : MonoBehaviour
         display.UpdateDisplay(data.Slots);
     }
 
+    public void SwitchSlots(int _slot1, int _slot2)
+    {
+        data.SwitchSlots(_slot1, _slot2);
+        display.UpdateDisplay(data.Slots);
+    }
+
     public int SlotNumber => data.SlotNumber;
 
 }

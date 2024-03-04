@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class inventoryDisplay : MonoBehaviour
 {
+    private int startDragSlotID = 999999;
+
     private slotController[] slots;
 
     [SerializeField] private Transform slotPrefab;
@@ -30,6 +32,8 @@ public class inventoryDisplay : MonoBehaviour
             slots[i].UpdateDisplay(_slotInfos[i].Icon, _slotInfos[i].Number);
         }
     }
-    
 
+    public void StartDrag(int _startSlotID) => startDragSlotID = _startSlotID;
+
+    public void EndDrag(int _endSlotID) => controll.SwitchSlots(startDragSlotID, _endSlotID);
 }
