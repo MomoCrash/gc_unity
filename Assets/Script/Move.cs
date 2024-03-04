@@ -66,11 +66,12 @@ public class Move : MonoBehaviour
         var dash = Input.GetAxis("Dash");
         var sprint = Input.GetAxis("Sprint");
 
-        bool IsMoving = horz != 0;
+        bool IsMoving = horz > 0.2f && horz < 0.2f;
         bool IsSprinting = isOnGround && !isJumping && IsMoving && sprint != 0;
         bool CanDash = isOnGround && dash != 0 && !IsSprinting && canUseNextDash && currentDashCount > 0;
         bool CanJump = (isOnGround || isJumping) && canUseNextJump && jump != 0 && currentJumpCount > 0;
         bool CanWallJump = !isJumping && canUseNextJump && jump != 0 && isOnWall;
+        bool IsFalling = jump == 0 && !isOnGround && !isOnWall;
 
         MoveVector = Vector3.zero;
 
@@ -105,7 +106,16 @@ public class Move : MonoBehaviour
             dashRestoreTime = Time.time + RestoreDashDalay;
             dashUseWaitTime = Time.time + .5f;
             canUseNextDash = false;
+            player_animator.SetTrigger("Dash");
             return;
+        }
+
+        if (IsFalling)
+        {
+            player_animator.SetBool("IsFalling", true);
+        } else
+        {
+            player_animator.SetBool("IsFalling", false);
         }
 
         if (CanJump)
@@ -119,6 +129,8 @@ public class Move : MonoBehaviour
             Jump(new Vector3(horz * DashForce * 1, jump * JumpForce * 2, 0), .3f);
             return;
         }
+
+        player_animator.SetTrigger("Idle");
 
     }
 
