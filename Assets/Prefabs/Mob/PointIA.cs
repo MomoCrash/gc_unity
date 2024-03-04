@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AI_Patrol : MonoBehaviour
+public class PointIA : MobIA
 {
     public GameObject PointA;
     public GameObject PointB;
-    private Rigidbody2D rb;
     private Transform currentPoint;
-    public float speed;
-    private Animator animator;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -29,24 +27,16 @@ public class AI_Patrol : MonoBehaviour
         {
             rb.velocity = new Vector2(-speed, 0);
         }
+        Flip(speed);
         print(Vector2.Distance(transform.position, currentPoint.position));
         if(Vector2.Distance(transform.position, currentPoint.position) < 0.5f && currentPoint == PointB.transform)
         {
-            flip();
             currentPoint = PointA.transform;
         }
         if (Vector2.Distance(transform.position, currentPoint.position) < 0.5f && currentPoint == PointA.transform)
         {
-            flip();
             currentPoint = PointB.transform;
         }
-    }
-
-    private void flip()
-    {
-        Vector3 localScale = transform.localScale;
-        localScale.x *= -1;
-        transform.localScale = localScale;
     }
 
     private void OnDrawGizmos()

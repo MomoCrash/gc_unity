@@ -1,25 +1,8 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Mob_IA : MonoBehaviour
+public class FollowIA : MobIA
 {
-    public GameObject Player;
-    public float speed;
-    public float distanceBetween;
-    public float currentHealth;
-    public float attack;
-    public float maxHealth;
-    public float jumpForce = 1f; // Force de saut à régler
-    public LayerMask obstacleLayer; // Layer pour identifier les obstacles
-    public LayerMask GroundMask;
-    public float rayLength = 1f; // Longueur du rayon pour détecter les obstacles
-
-    private Rigidbody2D rb;
-    private float distance;
-    private bool isJumping = false;
-    private Animator animator;
-
-    public bool grounded;
 
     // Start is called before the first frame update
     void Start()
@@ -35,14 +18,7 @@ public class Mob_IA : MonoBehaviour
         Vector2 direction = (Player.transform.position - transform.position).normalized;
 
         // Tourner le monstre vers le joueur
-        if (direction.x > 0)
-        {
-            transform.localScale = new Vector3(5, 5, 5); // Orientation vers la droite
-        }
-        else if (direction.x < 0)
-        {
-            transform.localScale = new Vector3(-5, 5, 5); // Orientation vers la gauche
-        }
+        Flip(direction.x);
 
         if (distance < distanceBetween)
         {
@@ -73,19 +49,11 @@ public class Mob_IA : MonoBehaviour
         Gizmos.DrawLine(transform.position, transform.position + new Vector3(direction.x, direction.y, 0) * rayLength);
     }
 
-    void MobDeath()
-    {
-        if (currentHealth <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Target was Hit!");
+           
         }
         if (collision.gameObject.CompareTag("Obstacle"))
         {
