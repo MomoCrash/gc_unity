@@ -394,7 +394,7 @@ GameObject:
   - component: {fileID: 4134281717704428252}
   - component: {fileID: 6407846379606560499}
   - component: {fileID: 7094602399897065305}
-  - component: {fileID: 4178134524166026815}
+  - component: {fileID: 1968844321100343151}
   - component: {fileID: 4114221753506347109}
   - component: {fileID: 7262192153197459489}
   - component: {fileID: 2388353397506509715}
@@ -416,7 +416,7 @@ Transform:
   m_GameObject: {fileID: 8181104196980539683}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.34, y: -2.54, z: 0}
+  m_LocalPosition: {x: -7.31, y: 2.64, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -488,12 +488,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcfad02941c3a5d4fae438bdff85b672, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MobIA: {fileID: 4178134524166026815}
+  MobIA: {fileID: 1968844321100343151}
   currentHealth: 100
   MaxHealth: 100
   Choosedamage: 50
   healthBar: {fileID: 6181931684688822576}
---- !u!114 &4178134524166026815
+--- !u!114 &1968844321100343151
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -507,9 +507,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   speed: 2
-  distanceBetween: 8
-  attack: 0
-  jumpForce: 5
+  distanceBetween: 4
+  attack: 1
+  jumpForce: 1
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -517,6 +517,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   rayLength: 1
+  rb: {fileID: 0}
+  distance: 0
+  isJumping: 0
+  animator: {fileID: 3029288240683769472}
   grounded: 0
 --- !u!58 &4114221753506347109
 CircleCollider2D:
