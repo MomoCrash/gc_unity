@@ -7,7 +7,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    public float Heath;
+    public float Health;
     public float MaxHealth;
 
     public float Speed;
@@ -25,8 +25,8 @@ public class Player : MonoBehaviour
     /// <returns></returns>
     bool Damage(float amount)
     {
-        Heath -= amount;
-        if (Heath < 0) return true;
+        Health -= amount;
+        if (Health < 0) return true;
         return false;
     }
 

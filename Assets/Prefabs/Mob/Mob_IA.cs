@@ -3,12 +3,10 @@ using UnityEngine;
 
 public class Mob_IA : MonoBehaviour
 {
-    public GameObject Player;
+    public Player Player;
     public float speed;
     public float distanceBetween;
-    public float currentHealth;
     public float attack;
-    public float maxHealth;
     public float jumpForce = 1f; // Force de saut à régler
     public LayerMask obstacleLayer; // Layer pour identifier les obstacles
     public LayerMask GroundMask;
@@ -73,19 +71,13 @@ public class Mob_IA : MonoBehaviour
         Gizmos.DrawLine(transform.position, transform.position + new Vector3(direction.x, direction.y, 0) * rayLength);
     }
 
-    void MobDeath()
-    {
-        if (currentHealth <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
 
+ 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Target was Hit!");
+           
         }
         if (collision.gameObject.CompareTag("Obstacle"))
         {
