@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Mob_Damage : MonoBehaviour
 {
-    public Mob_IA MobIA;
+
+    public MobIA MobIA;
     public float currentHealth = 100;
     public float MaxHealth = 100;
     public int Choosedamage;
@@ -29,12 +30,12 @@ public class Mob_Damage : MonoBehaviour
         print(currentHealth);
         if (currentHealth <= 0)
         {
-            MobIA.mobDeath();
-            Invoke("destroyMob", 0.65f);
+            MobIA.MobDeath();
+            Invoke("DestroyMob", 0.65f);
         }
     }
 
-    private void destroyMob()
+    private void DestroyMob()
     {
         Destroy(gameObject);
         print("detruit");

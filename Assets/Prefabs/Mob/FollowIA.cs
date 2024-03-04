@@ -1,23 +1,8 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Mob_IA : MonoBehaviour
+public class FollowIA : MobIA
 {
-    public Player Player;
-    public float speed;
-    public float distanceBetween;
-    public float attack;
-    public float jumpForce = 1f;
-    public LayerMask obstacleLayer; 
-    public LayerMask GroundMask;
-    public float rayLength = 1f;
-
-    private Rigidbody2D rb;
-    private float distance;
-    private bool isJumping = false;
-    private Animator animator;
-
-    public bool grounded;
 
     // Start is called before the first frame update
     void Start()
@@ -33,14 +18,7 @@ public class Mob_IA : MonoBehaviour
         Vector2 direction = (Player.transform.position - transform.position).normalized;
 
         // Tourner le monstre vers le joueur
-        if (direction.x > 0)
-        {
-            transform.localScale = new Vector3(5, 5, 5); // Orientation vers la droite
-        }
-        else if (direction.x < 0)
-        {
-            transform.localScale = new Vector3(-5, 5, 5); // Orientation vers la gauche
-        }
+        Flip(direction.x);
 
         if (distance < distanceBetween)
         {
@@ -69,11 +47,6 @@ public class Mob_IA : MonoBehaviour
         // Assurez-vous que la direction du Gizmo correspond à la direction vers le joueur.
         Vector2 direction = (Player.transform.position - transform.position).normalized;
         Gizmos.DrawLine(transform.position, transform.position + new Vector3(direction.x, direction.y, 0) * rayLength);
-    }
-
-    public void mobDeath()
-    {
-        animator.SetTrigger("Death");
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
