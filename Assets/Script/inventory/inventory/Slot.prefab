@@ -301,3 +301,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iconImage: {fileID: 1215255680584884019}
   numberText: {fileID: 4887381149053226395}
+  dragPrefab: {fileID: 7511699649445587237, guid: b24e1832338d0424594a1663c9875d53, type: 3}
