@@ -180,7 +180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 309369198020170561}
   - component: {fileID: 7348129255116658542}
-  - component: {fileID: 7728824185620638520}
+  - component: {fileID: 6389183415767853124}
   - component: {fileID: 7053172120796004320}
   - component: {fileID: 6475208409328918972}
   - component: {fileID: 5361803727398831619}
@@ -263,7 +263,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7728824185620638520
+--- !u!114 &6389183415767853124
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -272,13 +272,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5520828336552614078}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74f7b320a84804b4381634ea087f9226, type: 3}
+  m_Script: {fileID: 11500000, guid: bcfad02941c3a5d4fae438bdff85b672, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MobIA: {fileID: 7053172120796004320}
   currentHealth: 100
   MaxHealth: 100
-  Choosedamage: 50
+  Choosedamage: 2
   healthBar: {fileID: 1577875145766511008}
 --- !u!114 &7053172120796004320
 MonoBehaviour:
@@ -292,9 +292,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2cb17aa76199f944ba46e234f2f0504, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  speed: 2
+  distanceBetween: 4
+  attack: 0
+  jumpForce: 1
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  GroundMask:
+    serializedVersion: 2
+    m_Bits: 0
+  rayLength: 1
+  rb: {fileID: 6475208409328918972}
+  distance: 4
+  isJumping: 0
+  animator: {fileID: 1665983789477906205}
+  grounded: 0
   PointA: {fileID: 0}
   PointB: {fileID: 0}
-  speed: 2
 --- !u!50 &6475208409328918972
 Rigidbody2D:
   serializedVersion: 4
