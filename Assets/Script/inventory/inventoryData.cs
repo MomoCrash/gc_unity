@@ -2,6 +2,8 @@ using UnityEngine;
 public class inventoryData : MonoBehaviour
 {
     [SerializeField] private int slotNumber;
+
+     
     [SerializeField] private SlotsInfos[] slotsInfos;
 
     [SerializeField] private itemTemplate[] templates;

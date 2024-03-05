@@ -16,3 +16,4 @@ MonoBehaviour:
   id: 2
   icon: {fileID: 8334976595455615866, guid: 19e112e86d8b0c846a8c7b0823eb3d95, type: 3}
   stack: 64
+  type: 5

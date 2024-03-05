@@ -32,7 +32,9 @@ public class slotController : MonoBehaviour, IBeginDragHandler, IDragHandler ,IE
         iconSprite = _icon;
         bool _empty = _number == 0;
 
-        numberText.text = _empty ? "": _number.ToString("00");
+        if (numberText != null) { 
+            numberText.text = _empty ? "" : _number.ToString("00");
+        }
         iconImage.color = _empty ? new Color(1,1,1,0f) : Color.white;
         iconImage.sprite = _empty ? null: _icon;
 

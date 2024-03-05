@@ -16,3 +16,4 @@ MonoBehaviour:
   id: 0
   icon: {fileID: 0}
   stack: 0
+  type: 5

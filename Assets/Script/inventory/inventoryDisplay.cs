@@ -14,10 +14,10 @@ public class inventoryDisplay : MonoBehaviour
 
     private inventoryControll controll;
     public void Init(inventoryControll _controll)
-        {
-            controll = _controll;
+    {
+        controll = _controll;
 
-            slots = new slotController[controll.SlotNumber];
+        slots = new slotController[controll.SlotNumber];
         for (int i = 0; i < slots.Length; i++)
         {
             slots[i] = Instantiate(slotPrefab, transform.position, Quaternion.identity, slotCanvas.transform).GetComponent<slotController>();
