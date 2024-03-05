@@ -560,7 +560,26 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      16X16 Pixel Mushroom Pack_0: 4651860149162492357
+      16X16 Pixel Mushroom Pack_1: 2822669320067649746
+      16X16 Pixel Mushroom Pack_10: -3364306863105261580
+      16X16 Pixel Mushroom Pack_11: -8871460731628584359
+      16X16 Pixel Mushroom Pack_12: -3456661954870800094
+      16X16 Pixel Mushroom Pack_13: -879599333049292012
+      16X16 Pixel Mushroom Pack_14: -4739948749096449875
+      16X16 Pixel Mushroom Pack_15: -4304435530108847840
+      16X16 Pixel Mushroom Pack_16: -2341222723646288770
+      16X16 Pixel Mushroom Pack_17: 750274632507112649
+      16X16 Pixel Mushroom Pack_18: -3524732599354804321
+      16X16 Pixel Mushroom Pack_2: -6625213130249440499
+      16X16 Pixel Mushroom Pack_3: -395534586865332394
+      16X16 Pixel Mushroom Pack_4: -6169692463450350676
+      16X16 Pixel Mushroom Pack_5: -2086917423916152716
+      16X16 Pixel Mushroom Pack_6: 5600781935024339254
+      16X16 Pixel Mushroom Pack_7: 674882732644797797
+      16X16 Pixel Mushroom Pack_8: 665018821740185852
+      16X16 Pixel Mushroom Pack_9: -7179950401680624163
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
