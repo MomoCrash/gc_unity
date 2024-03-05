@@ -34,6 +34,11 @@ public class inventoryData : MonoBehaviour
         return slotsInfos[_index].ItemId != 0;
     }
 
+    public SlotsInfos GetItem(int index)
+    {
+        return slotsInfos[index];
+    }
+
     public void SetItem(int _index, itemTemplate _item, int amount)
     {
         slotsInfos[_index] = new SlotsInfos(_item, amount);
