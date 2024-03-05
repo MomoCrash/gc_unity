@@ -5,6 +5,8 @@ using UnityEngine;
 public class Mob_Damage : MonoBehaviour
 {
 
+    public itemTemplate[] items;
+
     public MobIA MobIA;
     public float currentHealth = 100;
     public float MaxHealth = 100;
@@ -37,6 +39,7 @@ public class Mob_Damage : MonoBehaviour
 
     private void DestroyMob()
     {
+        DropItem.DropItemInWorld(GameObject.Find("Items"), gameObject.transform.position, GameObject.Find("itemexemple"), items[0], 5);
         Destroy(gameObject);
         print("detruit");
     }

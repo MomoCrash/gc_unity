@@ -10,9 +10,9 @@ public class Teleporter : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        SceneManager.LoadScene(LevelID);
-
+        if (collision.CompareTag("Player"))
+        {
+            SceneManager.LoadScene(LevelID);
+        }
     }
-
 }
