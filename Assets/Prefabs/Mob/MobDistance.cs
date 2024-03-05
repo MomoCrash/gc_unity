@@ -1,24 +1,8 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Mob_Distance : MonoBehaviour
+public class MobDistance : MobIA
 {
-    public GameObject Player;
-    public float speed;
-    public float distanceBetween;
-    public float currentHealth;
-    public float attack;
-    public float maxHealth;
-    public float jumpForce = 1f; 
-    public LayerMask obstacleLayer; 
-    public LayerMask GroundMask;
-    public float rayLength = 1f; 
-
-    private Rigidbody2D rb;
-    private float distance;
-    private Animator animator;
-
-    public bool grounded;
 
     // Start is called before the first frame update
     void Start()
@@ -69,14 +53,6 @@ public class Mob_Distance : MonoBehaviour
         
         Vector2 direction = (Player.transform.position - transform.position).normalized;
         Gizmos.DrawLine(transform.position, transform.position + new Vector3(direction.x, direction.y, 0) * rayLength);
-    }
-
-    void MobDeath()
-    {
-        if (currentHealth <= 0)
-        {
-            Destroy(gameObject);
-        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

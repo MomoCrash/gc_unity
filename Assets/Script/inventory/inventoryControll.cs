@@ -46,8 +46,14 @@ public class inventoryControll : MonoBehaviour
             if (!data.HasItem(i))
             {
                 data.SetItem(i, template, amount);
+                break;
+            } else if (data.GetItem(i).ItemId == template.ItemId)
+            {
+                data.SetItem(i, template, amount + data.GetItem(i).Number);
+                break;
             }
         }
+        display.UpdateDisplay(data.Slots);
     }
 
     public void SwitchSlots(int _slot1, int _slot2)
