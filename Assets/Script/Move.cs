@@ -66,11 +66,12 @@ public class Move : MonoBehaviour
         var dash = Input.GetAxis("Dash");
         var sprint = Input.GetAxis("Sprint");
 
-        bool IsMoving = horz != 0;
+        bool IsMoving = -0.2f > horz || horz > 0.2f;
         bool IsSprinting = isOnGround && !isJumping && IsMoving && sprint != 0;
-        bool CanDash = isOnGround && dash != 0 && !IsSprinting && canUseNextDash && currentDashCount > 0;
+        bool CanDash =  dash != 0 && !IsSprinting && canUseNextDash && currentDashCount > 0;
         bool CanJump = (isOnGround || isJumping) && canUseNextJump && jump != 0 && currentJumpCount > 0;
         bool CanWallJump = !isJumping && canUseNextJump && jump != 0 && isOnWall;
+        bool IsFalling = jump == 0 && !isOnGround && !isOnWall;
 
         MoveVector = Vector3.zero;
 
@@ -85,27 +86,52 @@ public class Move : MonoBehaviour
 
         if (IsMoving)
         {
+            print("Move");
             MoveVector += new Vector3(horz * MoveSpeed, 0, 0);
             if (!IsSprinting)
             {
-                player_animator.SetTrigger("Walk");
+                player_animator.SetBool("IsRunning", false);
+                player_animator.SetBool("IsWalking", true);
             }
+        } else
+        {
+            player_animator.SetBool("IsWalking", false);
         }
 
         if (IsSprinting)
         {
             MoveVector *= SprintSpeed;
-            player_animator.SetTrigger("Run");
+            player_animator.SetBool("IsRunning", true);
+            player_animator.SetBool("IsWalking", false);
+        } else
+        {
+            player_animator.SetBool("IsRunning", false);
         }
 
         if (CanDash)
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(horz * DashForce, 1, 0));
+            if (isOnGround)
+            {
+                gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(horz * DashForce, 1, 0));
+            }
+            else
+            {
+                gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(horz * DashForce / 2, -1, 0));
+            }
             currentDashCount--;
             dashRestoreTime = Time.time + RestoreDashDalay;
             dashUseWaitTime = Time.time + .5f;
             canUseNextDash = false;
+            player_animator.SetTrigger("Dash");
             return;
+        }
+
+        if (IsFalling)
+        {
+            player_animator.SetBool("IsFalling", true);
+        } else
+        {
+            player_animator.SetBool("IsFalling", false);
         }
 
         if (CanJump)

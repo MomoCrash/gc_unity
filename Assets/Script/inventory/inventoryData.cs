@@ -1,28 +1,4 @@
 using UnityEngine;
-
-[System.Serializable]
-public class SlotsInfos
-{
-    public SlotsInfos(itemTemplate _template, int _number)
-    {
-        template = _template;
-
-        name = template.name;
-        number = _number;
-    }
-
-    [SerializeField, HideInInspector] public string name;
-
-    [SerializeField] private int number = 0;
-
-    private itemTemplate template { get; }
-
-    public Sprite Icon => template.Icon;
-
-    public int ItemId => template.ItemId;
-    public int Number => number;   
-    public int Stack => template.Stack;
-}
 public class inventoryData : MonoBehaviour
 {
     [SerializeField] private int slotNumber;
@@ -40,8 +16,27 @@ public class inventoryData : MonoBehaviour
         {
             slotsInfos[i] = new SlotsInfos(templates[0], 0);
         }
+    }
 
-        slotsInfos[0] = new SlotsInfos(templates[1], 1);
+    public void SwitchSlots(int _slot1, int _slot2)
+    {
+        if (_slot1 == _slot2 || _slot1 >= slotsInfos.Length || _slot2 >= slotsInfos.Length || slotsInfos[_slot1].ItemId == 0) return;
+
+        SlotsInfos _save1 = slotsInfos[_slot1];
+        SlotsInfos _save2 = slotsInfos[_slot2];
+
+        slotsInfos[_slot1] = _save2;
+        slotsInfos[_slot2] = _save1;
+    }
+
+    public bool HasItem(int _index)
+    {
+        return slotsInfos[_index].ItemId != 0;
+    }
+
+    public void SetItem(int _index, itemTemplate _item, int amount)
+    {
+        slotsInfos[_index] = new SlotsInfos(_item, amount);
     }
 
     public int SlotNumber => slotNumber;
