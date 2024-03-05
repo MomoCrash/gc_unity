@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 131cd970e923497418ca1e50dd5d5925, type: 3}
-  m_Name: ChampiBout
+  m_Name: Purse
   m_EditorClassIdentifier: 
-  itemName: Bout
+  itemName: Purse
   id: 2
-  icon: {fileID: -2478889539282618257, guid: f0ccf332052444d478d6bd7a0cb302f0, type: 3}
+  icon: {fileID: 8334976595455615866, guid: 19e112e86d8b0c846a8c7b0823eb3d95, type: 3}
   stack: 64

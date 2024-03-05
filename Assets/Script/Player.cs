@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     public int MaxJumpCount;
     public int MaxDashCount;
 
+    public float BaseDamage;
+
     public float Resistance;
     public float FireResistance;
     public float EarthResistance;
@@ -38,14 +40,16 @@ public class Player : MonoBehaviour
         return false;
     }
 
-    void UpdateEquipment()
-    {
-
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Damage(20);
+        if (collision.gameObject.CompareTag("Mobs"))
+        {
+            var mobIA = collision.gameObject.GetComponent<MobIA>();
+            if (Damage(mobIA.attack))
+            {
+                gameObject.GetComponent<Animator>().SetTrigger("Death");
+            }
+        }
     }
 
 }

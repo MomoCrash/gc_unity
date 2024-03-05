@@ -5,15 +5,15 @@ using UnityEngine;
 public class ItemDrop : MonoBehaviour
 {
 
-    public itemTemplate item;
-    public int amount;
+    public ItemStack ItemStack;
+    public int Amount;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var inventory = (inventoryControll) FindAnyObjectByType(typeof(inventoryControll));
         if (inventory != null )
         {
-            inventory.AddItem(item, amount);
+            inventory.AddItem(ItemStack.item, Amount);
         }
         Destroy(gameObject);
     }

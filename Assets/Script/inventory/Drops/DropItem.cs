@@ -4,15 +4,22 @@ using UnityEngine;
 
 public static class DropItem
 {
-    public static void DropItemInWorld(GameObject parent, Vector2 position, GameObject itemObject, itemTemplate item, int amount)
+    public static void DropItemInWorld(GameObject parent, Vector2 position, GameObject itemObject, ItemStack itemStack, int amount)
     {
 
         var newItem = GameObject.Instantiate(itemObject);
-        newItem.GetComponent<ItemDrop>().item = item;
-        newItem.GetComponent<ItemDrop>().amount = amount;
-        newItem.GetComponent<SpriteRenderer>().sprite = item.Icon;
+        newItem.GetComponent<ItemDrop>().ItemStack = itemStack;
+        newItem.GetComponent<ItemDrop>().Amount = amount;
+        newItem.GetComponent<SpriteRenderer>().sprite = itemStack.item.Icon;
         newItem.transform.parent = parent.transform;
         newItem.transform.position = position;
 
     }
+}
+
+[System.Serializable]
+public struct ItemStack
+{
+    public itemTemplate item;
+    public int amount;
 }
