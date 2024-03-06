@@ -18,6 +18,16 @@ public class itemTemplate : ScriptableObject
 
     public ItemType type;
 
+    [Range(0f, 1f)]
+    public float BaseResistance;
+    [Range(0f, 1f)]
+    public float EarthResistance;
+    [Range(0f, 1f)]
+    public float FireResistance;
+
+    public float Health;
+    public float Damage; 
+
     public string Name => itemName;
 
     public int ItemId => id;

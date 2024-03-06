@@ -1,8 +1,8 @@
 using UnityEngine;
 public class inventoryData : MonoBehaviour
 {
+    public int addedSlots;
     [SerializeField] private int slotNumber;
-
      
     [SerializeField] private SlotsInfos[] slotsInfos;
 
@@ -12,6 +12,7 @@ public class inventoryData : MonoBehaviour
     public void Init(inventoryControll _controll)
     {
         controll = _controll;
+        slotNumber += addedSlots;
 
         slotsInfos = new SlotsInfos[slotNumber];
         for (int i = 0; i < slotNumber; i++) 
@@ -22,7 +23,10 @@ public class inventoryData : MonoBehaviour
 
     public void SwitchSlots(int _slot1, int _slot2)
     {
-        if (_slot1 == _slot2 || _slot1 >= slotsInfos.Length || _slot2 >= slotsInfos.Length || slotsInfos[_slot1].ItemId == 0) return;
+        bool isRessourceSlot = controll.display.slots[_slot2].ItemType == ItemType.RESSOURCE;
+        bool isSameRessourceType = controll.display.slots[_slot2].ItemType == slotsInfos[_slot1].template.type;
+
+        if (_slot1 == _slot2 || _slot1 >= slotsInfos.Length || _slot2 >= slotsInfos.Length || slotsInfos[_slot1].ItemId == 0 || (!isRessourceSlot && !isSameRessourceType)) return;
 
         SlotsInfos _save1 = slotsInfos[_slot1];
         SlotsInfos _save2 = slotsInfos[_slot2];

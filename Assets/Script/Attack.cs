@@ -25,7 +25,7 @@ public class Attack : MonoBehaviour
             }
             if (CurrentMob != null)
             {
-                CurrentMob.MobTakeDamage(Player.GetComponent<Player>().BaseDamage);
+                CurrentMob.MobTakeDamage(Player.GetComponent<Player>().BaseDamage * CurrentMob.Resistance);
             }
         }
     }
@@ -47,3 +47,10 @@ public class Attack : MonoBehaviour
         }
     }
 }
+
+public enum AttackElement
+{
+    FIRE,
+    BASIC,
+    EARTH,
+} 

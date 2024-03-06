@@ -8,6 +8,10 @@ public class Mob_Damage : MonoBehaviour
     public ItemStack[] items;
 
     public MobIA MobIA;
+
+    [Range(0f, 1f)]
+    public float Resistance;
+   
     public float currentHealth = 100;
     public float MaxHealth = 100;
 
@@ -28,7 +32,6 @@ public class Mob_Damage : MonoBehaviour
     {
         currentHealth -= damage;
         healthBar.UpdateHealthBar(currentHealth, MaxHealth);
-        print(currentHealth);
         if (currentHealth <= 0)
         {
             MobIA.MobDeath();
@@ -38,8 +41,10 @@ public class Mob_Damage : MonoBehaviour
 
     private void DestroyMob()
     {
-        DropItem.DropItemInWorld(GameObject.Find("Items"), gameObject.transform.position, GameObject.Find("itemexemple"), items[0], 5);
+        foreach (var item in items)
+        {
+            DropItem.DropItemInWorld(GameObject.Find("Items"), gameObject.transform.position, GameObject.Find("itemexemple"), item);
+        }
         Destroy(gameObject);
-        print("detruit");
     }
 }

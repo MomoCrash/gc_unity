@@ -16,8 +16,11 @@ public class Player : MonoBehaviour
 
     public float BaseDamage;
 
+    [Range(0f, 1f)]
     public float Resistance;
+    [Range(0f, 1f)]
     public float FireResistance;
+    [Range(0f, 1f)]
     public float EarthResistance;
     [SerializeField] FloatingHealthBar healthBar;
 
@@ -32,8 +35,21 @@ public class Player : MonoBehaviour
     /// </summary>
     /// <param name="amount"></param>
     /// <returns></returns>
-    bool Damage(float amount)
+    bool Damage(float amount, AttackElement element)
     {
+        switch (element)
+        {
+            case AttackElement.FIRE:
+                Health -= amount * FireResistance;
+                break;
+            case AttackElement.EARTH:
+                Health -= amount * EarthResistance;
+                break;
+            case AttackElement.BASIC:
+                Health -= amount * Resistance;
+                break;
+            default: break;
+        }
         Health -= amount;
         healthBar.UpdateHealthBar(Health, MaxHealth);
         if (Health < 0) return true;
@@ -45,7 +61,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Mobs"))
         {
             var mobIA = collision.gameObject.GetComponent<MobIA>();
-            if (Damage(mobIA.attack))
+            if (Damage(mobIA.attack, mobIA.element))
             {
                 gameObject.GetComponent<Animator>().SetTrigger("Death");
             }

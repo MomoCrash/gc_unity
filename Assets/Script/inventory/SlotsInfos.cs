@@ -15,7 +15,7 @@ public class SlotsInfos
 
     [SerializeField] private int number = 0;
 
-    private itemTemplate template { get; }
+    public itemTemplate template { get; }
 
     public Sprite Icon => template.Icon;
 

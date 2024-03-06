@@ -7,11 +7,13 @@ using UnityEngine.EventSystems;
 
 public class slotController : MonoBehaviour, IBeginDragHandler, IDragHandler ,IEndDragHandler, IDropHandler
 {
-    public int slotID { private set; get; }
+    public int slotID;
 
     private Sprite iconSprite;
 
     [SerializeField] private Image iconImage;
+
+    public ItemType ItemType = ItemType.RESSOURCE;
 
     [SerializeField] private TextMeshProUGUI numberText;
 
@@ -63,7 +65,10 @@ public class slotController : MonoBehaviour, IBeginDragHandler, IDragHandler ,IE
 
     public void OnEndDrag(PointerEventData eventData) => Destroy(dragObject);
 
-    public void OnDrop(PointerEventData eventData) => display.EndDrag(slotID);
+    public void OnDrop(PointerEventData eventData)
+    {
+        display.EndDrag(slotID);
+    }
 
     #endregion
 }
