@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Damage(20);
+        
     }
 
     public void SavePlayer ()
