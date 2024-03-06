@@ -8,6 +8,7 @@ public class MobIA : MonoBehaviour
     public float speed;
     public float distanceBetween;
     public float attack;
+    public AttackElement element;
     public float jumpForce;
     public LayerMask obstacleLayer;
     public LayerMask GroundMask;

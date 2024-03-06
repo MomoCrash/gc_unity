@@ -10,9 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 131cd970e923497418ca1e50dd5d5925, type: 3}
-  m_Name: ChampiBout
+  m_Name: Sword
   m_EditorClassIdentifier: 
-  itemName: Bout
-  id: 2
-  icon: {fileID: -2478889539282618257, guid: f0ccf332052444d478d6bd7a0cb302f0, type: 3}
-  stack: 64
+  itemName: Sword of Legend
+  id: 3
+  icon: {fileID: 4529412782308389768, guid: 8a4fdbd294c9333438ec7e7a7949f3cb, type: 3}
+  stack: 1
+  type: 0
+  BaseResistance: 0
+  EarthResistance: 0
+  FireResistance: 0
+  Health: 20
+  Damage: 10

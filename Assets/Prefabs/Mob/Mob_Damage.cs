@@ -5,12 +5,15 @@ using UnityEngine;
 public class Mob_Damage : MonoBehaviour
 {
 
-    public itemTemplate[] items;
+    public ItemStack[] items;
 
     public MobIA MobIA;
+
+    [Range(0f, 1f)]
+    public float Resistance;
+   
     public float currentHealth = 100;
     public float MaxHealth = 100;
-    public int Choosedamage;
 
     [SerializeField] FloatingHealthBar healthBar;
 
@@ -25,11 +28,10 @@ public class Mob_Damage : MonoBehaviour
         healthBar.UpdateHealthBar(currentHealth, MaxHealth);
 
     }
-    public void MobTakeDamage(int damage)
+    public void MobTakeDamage(float damage)
     {
         currentHealth -= damage;
         healthBar.UpdateHealthBar(currentHealth, MaxHealth);
-        print(currentHealth);
         if (currentHealth <= 0)
         {
             MobIA.MobDeath();
@@ -39,15 +41,10 @@ public class Mob_Damage : MonoBehaviour
 
     private void DestroyMob()
     {
-        DropItem.DropItemInWorld(GameObject.Find("Items"), gameObject.transform.position, GameObject.Find("itemexemple"), items[0], 5);
-        Destroy(gameObject);
-        print("detruit");
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
+        foreach (var item in items)
         {
-            MobTakeDamage(Choosedamage);
+            DropItem.DropItemInWorld(GameObject.Find("Items"), gameObject.transform.position, GameObject.Find("itemexemple"), item);
         }
+        Destroy(gameObject);
     }
 }

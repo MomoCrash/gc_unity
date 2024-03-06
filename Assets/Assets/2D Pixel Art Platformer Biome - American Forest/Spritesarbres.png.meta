@@ -1,0 +1,325 @@
+fileFormatVersion: 2
+guid: ea09e311a79181746a845b1019c2af54
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7895961819474861412
+    second: Spritesarbres_0
+  - first:
+      213: -1914230385641341205
+    second: Spritesarbres_1
+  - first:
+      213: -4663959106864558926
+    second: Spritesarbres_2
+  - first:
+      213: 7402132920267112411
+    second: Spritesarbres_3
+  - first:
+      213: -926532516948685353
+    second: Spritesarbres_4
+  - first:
+      213: -801595499302915689
+    second: Spritesarbres_5
+  - first:
+      213: 873959979355479913
+    second: Spritesarbres_6
+  - first:
+      213: 939733806983364479
+    second: Spritesarbres_7
+  - first:
+      213: -2813701475262754065
+    second: Spritesarbres_8
+  - first:
+      213: 7544574660282661998
+    second: Spritesarbres_9
+  - first:
+      213: 2320682918376551450
+    second: Spritesarbres_10
+  - first:
+      213: 2224584639491682381
+    second: Spritesarbres_11
+  - first:
+      213: -2429773124664326438
+    second: Spritesarbres_12
+  - first:
+      213: -8991961237187033838
+    second: Spritesarbres_13
+  - first:
+      213: 5831761822606630164
+    second: Spritesarbres_14
+  - first:
+      213: -645241922429910731
+    second: Spritesarbres_15
+  - first:
+      213: -8512511071636519760
+    second: Spritesarbres_16
+  - first:
+      213: 3166026868040666244
+    second: Spritesarbres_17
+  - first:
+      213: -2831591272313450657
+    second: Spritesarbres_18
+  - first:
+      213: -2156756226366618880
+    second: Spritesarbres_19
+  - first:
+      213: 6985727748058051786
+    second: Spritesarbres_20
+  - first:
+      213: 5798876108715202106
+    second: Spritesarbres_21
+  - first:
+      213: -7628684910086382096
+    second: Spritesarbres_22
+  - first:
+      213: 1934018188416488564
+    second: Spritesarbres_23
+  - first:
+      213: -4376683212594595069
+    second: Spritesarbres_24
+  - first:
+      213: 1860931428202120427
+    second: Spritesarbres_25
+  - first:
+      213: 5876245947986317168
+    second: Spritesarbres_26
+  - first:
+      213: -3154184968563803419
+    second: Spritesarbres_27
+  - first:
+      213: -2721873237661940856
+    second: Spritesarbres_28
+  - first:
+      213: 6258180414396776572
+    second: Spritesarbres_29
+  - first:
+      213: -858491468427373410
+    second: Spritesarbres_30
+  - first:
+      213: 1605013724224272274
+    second: Spritesarbres_31
+  - first:
+      213: -324130602611094369
+    second: Spritesarbres_32
+  - first:
+      213: 2705315221523404513
+    second: Spritesarbres_33
+  - first:
+      213: -8987511996758418588
+    second: Spritesarbres_34
+  - first:
+      213: 3579417993984740368
+    second: Spritesarbres_35
+  - first:
+      213: -8199965298710262504
+    second: Spritesarbres_36
+  - first:
+      213: -7012219872195077328
+    second: Spritesarbres_37
+  - first:
+      213: 7239635985283239773
+    second: Spritesarbres_38
+  - first:
+      213: 6736962990798348737
+    second: Spritesarbres_39
+  - first:
+      213: -3848058941864732071
+    second: Spritesarbres_40
+  - first:
+      213: 8819308880736022792
+    second: Spritesarbres_41
+  - first:
+      213: 2481050596357610820
+    second: Spritesarbres_42
+  - first:
+      213: 4070660867624646763
+    second: Spritesarbres_43
+  - first:
+      213: 1439671513132718571
+    second: Spritesarbres_44
+  - first:
+      213: 3071680267317122839
+    second: Spritesarbres_45
+  - first:
+      213: 7151095442265272110
+    second: Spritesarbres_46
+  - first:
+      213: -8232134219046127614
+    second: Spritesarbres_47
+  - first:
+      213: 4236888432523966696
+    second: Spritesarbres_48
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Spritesarbres_1
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 191
+        width: 69
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: beeb6953b994f65e0800000000000000
+      internalID: -1914230385641341205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesarbres_4
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 191
+        width: 52
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ddcc66b59b4423f0800000000000000
+      internalID: -926532516948685353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesarbres_5
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 191
+        width: 52
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7917f72f32920e4f0800000000000000
+      internalID: -801595499302915689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 7ab23f6aff4b89d4b99bfd9144c14c87
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Spritesarbres_1: -1914230385641341205
+      Spritesarbres_4: -926532516948685353
+      Spritesarbres_5: -801595499302915689
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
