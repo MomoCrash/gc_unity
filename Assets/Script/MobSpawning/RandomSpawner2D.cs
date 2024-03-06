@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class RandomSpawner2D : MonoBehaviour
 {
-    public GameObject objectToSpawn; // L'objet à faire apparaître
-    public float spawnIntervalMin = 4f; // Temps minimum entre les spawns
-    public float spawnIntervalMax = 10f; // Temps maximum entre les spawns
+    public GameObject objectToSpawn;
+    public float spawnIntervalMin = 4f;
+    public float spawnIntervalMax = 10f;
 
     private void Start()
     {
@@ -14,7 +14,6 @@ public class RandomSpawner2D : MonoBehaviour
 
     private IEnumerator SpawnRoutine()
     {
-        // Assurez-vous que le composant est bien un Collider2D
         Collider2D collider = GetComponent<Collider2D>();
         if (collider == null)
         {
@@ -22,23 +21,52 @@ public class RandomSpawner2D : MonoBehaviour
             yield break;
         }
 
-        while (true) // Boucle infinie pour continuer à faire apparaître des objets
+        while (true)
         {
             float waitTime = Random.Range(spawnIntervalMin, spawnIntervalMax);
-            yield return new WaitForSeconds(waitTime); // Attendre un temps aléatoire entre spawnIntervalMin et spawnIntervalMax
+            yield return new WaitForSeconds(waitTime);
 
-            int spawnCount = Random.Range(1, 3); // Générer soit 1 soit 2 objets
+            int spawnCount = Random.Range(1, 3); // Générer 1 ou 2 objets
             for (int i = 0; i < spawnCount; i++)
             {
-                // Générer une position aléatoire à l'intérieur du collider du trigger
-                Vector2 randomPosition = new Vector2(
-                    Random.Range(collider.bounds.min.x, collider.bounds.max.x),
-                    Random.Range(collider.bounds.min.y, collider.bounds.max.y)
-                );
-
-                // Faire apparaître l'objet à la position aléatoire
-                Instantiate(objectToSpawn, randomPosition, Quaternion.identity);
+                Vector2 randomPosition = GenerateSpawnPosition(collider);
+                if (randomPosition != Vector2.zero) // Vérifie si une position valide a été trouvée
+                {
+                    Instantiate(objectToSpawn, randomPosition, Quaternion.identity);
+                }
             }
         }
     }
+
+    private Vector2 GenerateSpawnPosition(Collider2D collider)
+    {
+        // Initialiser randomPosition à Vector2.zero avant la boucle
+        Vector2 randomPosition = Vector2.zero;
+        bool positionFound = false;
+
+        for (int tries = 0; tries < 100; tries++)
+        {
+            Vector2 potentialPosition = new Vector2(
+                Random.Range(collider.bounds.min.x, collider.bounds.max.x),
+                Random.Range(collider.bounds.min.y, collider.bounds.max.y)
+            );
+
+            // Vérifie s'il y a des colliders à cette position (comme des murs ou des obstacles)
+            if (!Physics2D.OverlapCircle(potentialPosition, 0.5f)) // Ajustez le rayon selon la taille de vos mobs
+            {
+                randomPosition = potentialPosition; // Assigner la position valide trouvée à randomPosition
+                positionFound = true;
+                break; // Sortir de la boucle si une position valide est trouvée
+            }
+        }
+
+        if (!positionFound)
+        {
+            Debug.LogWarning("Impossible de trouver une position valide pour le spawn après 100 essais");
+            // Vous pouvez choisir de gérer différemment l'échec de trouver une position valide
+        }
+
+        return randomPosition; // Retourne la position trouvée ou Vector2.zero si aucune position valide n'est trouvée
+    }
+
 }
