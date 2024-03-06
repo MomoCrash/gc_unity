@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class FollowIA : MobIA
 {
-
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +30,8 @@ public class FollowIA : MobIA
             {
                 
                 rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-                isJumping = true; 
+                isJumping = true;
+                print("obtacle detected");
             }
         }
         else
