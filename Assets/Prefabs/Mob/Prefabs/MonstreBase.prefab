@@ -50,7 +50,7 @@ GameObject:
   - component: {fileID: 3029288240683769472}
   m_Layer: 3
   m_Name: MonstreBase
-  m_TagString: Untagged
+  m_TagString: Mobs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,11 +136,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcfad02941c3a5d4fae438bdff85b672, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items: []
+  items:
+  - item: {fileID: 11400000, guid: b773132e1e981404d9811390def28b8c, type: 2}
+    amount: 1
+  - item: {fileID: 11400000, guid: 7e7ef477d7e2ca9459d19eeb36347417, type: 2}
+    amount: 100
   MobIA: {fileID: 1968844321100343151}
+  Resistance: 1
   currentHealth: 100
   MaxHealth: 100
-  Choosedamage: 50
   healthBar: {fileID: 6181931684688822576}
 --- !u!114 &1968844321100343151
 MonoBehaviour:
@@ -157,7 +161,8 @@ MonoBehaviour:
   Player: {fileID: 0}
   speed: 2
   distanceBetween: 4
-  attack: 1
+  attack: 3.71
+  element: 0
   jumpForce: 1
   obstacleLayer:
     serializedVersion: 2

@@ -30,9 +30,8 @@ public class Attack : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        print("Collide " + collision.tag);
         if (collision.CompareTag("Mobs"))
         {
             CurrentMob = collision.gameObject.GetComponent<Mob_Damage>();

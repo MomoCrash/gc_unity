@@ -28,7 +28,6 @@ public class inventoryDisplay : MonoBehaviour
         }
         for (int i = index-1; i < slots.Length; i++)
         {
-            print(i);
             slots[i] = AddedSlots[slots.Length-1 - i].GetComponent<slotController>();
             slots[i].Init(i, this);
         }

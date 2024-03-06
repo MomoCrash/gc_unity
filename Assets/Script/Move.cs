@@ -86,7 +86,6 @@ public class Move : MonoBehaviour
 
         if (IsMoving)
         {
-            print("Move");
             MoveVector += new Vector3(horz * MoveSpeed, 0, 0);
             if (!IsSprinting)
             {

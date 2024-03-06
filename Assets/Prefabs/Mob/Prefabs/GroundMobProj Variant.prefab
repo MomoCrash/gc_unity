@@ -208,9 +208,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items: []
   MobIA: {fileID: 6524833721991274226}
+  Resistance: 0
   currentHealth: 100
   MaxHealth: 100
-  Choosedamage: 5
   healthBar: {fileID: 360591279609125854}
 --- !u!114 &1291105186856100350
 MonoBehaviour:
@@ -237,9 +237,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  speed: 5
+  speed: 2
   distanceBetween: 5
   attack: 0
+  element: 0
   jumpForce: 1
   obstacleLayer:
     serializedVersion: 2

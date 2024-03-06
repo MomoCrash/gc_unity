@@ -12,6 +12,7 @@ public static class DropItem
         newItem.GetComponent<ItemDrop>().ItemStack = itemStack;
         newItem.GetComponent<ItemDrop>().Amount = itemStack.amount;
         newItem.GetComponent<SpriteRenderer>().sprite = itemStack.item.Icon;
+        newItem.GetComponent<Rigidbody2D>().simulated = true;
         newItem.transform.parent = parent.transform;
         newItem.transform.position = position;
 
