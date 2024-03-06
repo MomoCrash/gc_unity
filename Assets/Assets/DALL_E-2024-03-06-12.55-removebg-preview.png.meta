@@ -1,0 +1,337 @@
+fileFormatVersion: 2
+guid: 42baeb3a90dc32544a08ce69df2d0a52
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8276074501589760584
+    second: DALL_E-2024-03-06-12.55-removebg-preview_0
+  - first:
+      213: 6450703447709080216
+    second: DALL_E-2024-03-06-12.55-removebg-preview_1
+  - first:
+      213: -2707078570120495614
+    second: DALL_E-2024-03-06-12.55-removebg-preview_2
+  - first:
+      213: 1301350146411012965
+    second: DALL_E-2024-03-06-12.55-removebg-preview_3
+  - first:
+      213: 3253126061904483413
+    second: DALL_E-2024-03-06-12.55-removebg-preview_4
+  - first:
+      213: 5920610571998819900
+    second: DALL_E-2024-03-06-12.55-removebg-preview_5
+  - first:
+      213: 4387906488365682746
+    second: DALL_E-2024-03-06-12.55-removebg-preview_6
+  - first:
+      213: 8986473746442470983
+    second: DALL_E-2024-03-06-12.55-removebg-preview_7
+  - first:
+      213: 895469773738641228
+    second: DALL_E-2024-03-06-12.55-removebg-preview_8
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: DALL_E-2024-03-06-12.55-removebg-preview_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 335
+        width: 119
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84afce129e58ad270800000000000000
+      internalID: 8276074501589760584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DALL_E-2024-03-06-12.55-removebg-preview_1
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 338
+        width: 185
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89a5610cb90858950800000000000000
+      internalID: 6450703447709080216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DALL_E-2024-03-06-12.55-removebg-preview_2
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 335
+        width: 120
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20e35e812668e6ad0800000000000000
+      internalID: -2707078570120495614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DALL_E-2024-03-06-12.55-removebg-preview_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 179
+        width: 119
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5632b3530135f0210800000000000000
+      internalID: 1301350146411012965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DALL_E-2024-03-06-12.55-removebg-preview_4
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 180
+        width: 185
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 554d161eaec652d20800000000000000
+      internalID: 3253126061904483413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DALL_E-2024-03-06-12.55-removebg-preview_5
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 179
+        width: 120
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c36796d42fb3a2250800000000000000
+      internalID: 5920610571998819900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DALL_E-2024-03-06-12.55-removebg-preview_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 23
+        width: 119
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a301baaf3b9f4ec30800000000000000
+      internalID: 4387906488365682746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DALL_E-2024-03-06-12.55-removebg-preview_7
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 25
+        width: 185
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 746c310924e56bc70800000000000000
+      internalID: 8986473746442470983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DALL_E-2024-03-06-12.55-removebg-preview_8
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 23
+        width: 120
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c478acac3095d6c00800000000000000
+      internalID: 895469773738641228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      DALL_E-2024-03-06-12.55-removebg-preview_0: 8276074501589760584
+      DALL_E-2024-03-06-12.55-removebg-preview_1: 6450703447709080216
+      DALL_E-2024-03-06-12.55-removebg-preview_2: -2707078570120495614
+      DALL_E-2024-03-06-12.55-removebg-preview_3: 1301350146411012965
+      DALL_E-2024-03-06-12.55-removebg-preview_4: 3253126061904483413
+      DALL_E-2024-03-06-12.55-removebg-preview_5: 5920610571998819900
+      DALL_E-2024-03-06-12.55-removebg-preview_6: 4387906488365682746
+      DALL_E-2024-03-06-12.55-removebg-preview_7: 8986473746442470983
+      DALL_E-2024-03-06-12.55-removebg-preview_8: 895469773738641228
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
