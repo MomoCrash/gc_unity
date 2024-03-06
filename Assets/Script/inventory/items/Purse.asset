@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 131cd970e923497418ca1e50dd5d5925, type: 3}
-  m_Name: Money
+  m_Name: Purse
   m_EditorClassIdentifier: 
-  itemName: Money
-  id: 1
-  icon: {fileID: -810997250770233424, guid: 3add4054dcb52bd42b6b2c9a4a2d457d, type: 3}
+  itemName: Purse
+  id: 2
+  icon: {fileID: 8334976595455615866, guid: 19e112e86d8b0c846a8c7b0823eb3d95, type: 3}
   stack: 64
   type: 5

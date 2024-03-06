@@ -4,9 +4,10 @@ using UnityEngine.UI;
 [RequireComponent(typeof(inventoryData), typeof(inventoryDisplay))]
 public class inventoryControll : MonoBehaviour
 {
-    private inventoryData data;
 
-    private inventoryDisplay display;
+    public inventoryData data;
+
+    public inventoryDisplay display;
 
 
     private void Start()
@@ -63,5 +64,7 @@ public class inventoryControll : MonoBehaviour
     }
 
     public int SlotNumber => data.SlotNumber;
+
+    public int AddedSlots => data.addedSlots;
 
 }

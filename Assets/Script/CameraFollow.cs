@@ -33,7 +33,7 @@ public class CameraFollow : MonoBehaviour
             playerPositon -= shakeTarget;
             var moveVector = Vector3.Lerp(playerPositon, transform.position, .95f);
             moveVector.z = -10;
-            gameObject.transform.position = moveVector;
+            gameObject.transform.position = moveVector; 
         }
         else
         {
