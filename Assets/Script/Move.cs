@@ -36,6 +36,8 @@ public class Move : MonoBehaviour
     public bool isOnGround = true;
     public bool isOnWall = false;
 
+    Player player;
+
     float jumpUseWaitTime;
     float dashUseWaitTime;
 
@@ -47,19 +49,15 @@ public class Move : MonoBehaviour
         player_animator = gameObject.GetComponent<Animator>();
         player_renderer = gameObject.GetComponent<SpriteRenderer>();
 
-        var player = gameObject.GetComponent<Player>();
+        player = gameObject.GetComponent<Player>();
 
-        MoveSpeed = player.Speed;
-
-        MaxJumpCount = player.MaxJumpCount;
-        MaxDashCount = player.MaxDashCount;
-
-        currentJumpCount = player.MaxJumpCount;
-        currentDashCount = player.MaxDashCount;
+        UpdateStats();
     }
 
     void Update()
     {
+
+        if (player.isDeath) return;
 
         var horz = Input.GetAxis("Horizontal");
         var jump = Input.GetAxis("Jump");
@@ -171,6 +169,8 @@ public class Move : MonoBehaviour
         transform.Translate(MoveVector * Time.deltaTime);
 
         RestoreUtilities();
+
+        UpdateStats();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -217,6 +217,14 @@ public class Move : MonoBehaviour
         {
             isOnWall = false;
         }
+    }
+
+    void UpdateStats()
+    {
+        MoveSpeed = player.Speed;
+
+        MaxJumpCount = player.MaxJumpCount;
+        MaxDashCount = player.MaxDashCount;
     }
 
     void RestoreUtilities()

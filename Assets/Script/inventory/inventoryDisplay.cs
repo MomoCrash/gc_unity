@@ -41,6 +41,9 @@ public class inventoryDisplay : MonoBehaviour
         var totalStatFireResistance = 1f;
         var totalStatBaseResistance = 1f;
         var totalStatEarthResistance = 1f;
+        var totalStatJump = 2;
+        var totalStatDash = 1;
+        var totalStatSpeed = 3f;
 
         for (int i = 0; i < _slotInfos.Length;i++) 
         {
@@ -53,6 +56,9 @@ public class inventoryDisplay : MonoBehaviour
                 totalStatBaseResistance -= _slotInfos[i].template.BaseResistance;
                 totalStatHealth += _slotInfos[i].template.Health;
                 totalStatDamage += _slotInfos[i].template.Damage;
+                totalStatDash += _slotInfos[i].template.DashBoost;
+                totalStatJump += _slotInfos[i].template.JumpBoost;
+                totalStatSpeed += _slotInfos[i].template.SpeedBoost;
             }
 
         }
@@ -62,6 +68,9 @@ public class inventoryDisplay : MonoBehaviour
         PlayerStats.FireResistance = totalStatFireResistance;
         PlayerStats.EarthResistance = totalStatEarthResistance;
         PlayerStats.Resistance = totalStatBaseResistance;
+        PlayerStats.MaxDashCount = totalStatDash;
+        PlayerStats.MaxJumpCount = totalStatJump;
+        PlayerStats.Speed = totalStatSpeed;
 
     }
 

@@ -26,7 +26,14 @@ public class itemTemplate : ScriptableObject
     public float FireResistance;
 
     public float Health;
-    public float Damage; 
+    public float Damage;
+
+    [Range(0, 10)]
+    public int DashBoost;
+    [Range(0, 10)]
+    public int JumpBoost;
+    [Range(0, 10)]
+    public float SpeedBoost;
 
     public string Name => itemName;
 

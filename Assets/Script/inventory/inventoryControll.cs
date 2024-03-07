@@ -42,6 +42,16 @@ public class inventoryControll : MonoBehaviour
         }
     }
 
+    void OnDisable()
+    {
+        for (var i = 0; i < data.Slots.Length; i++)
+        {
+            PlayerPrefs.SetInt("Slot_" + i + "_Item", data.Slots[i].ItemId);
+            PlayerPrefs.SetInt("Slot_" + i + "_Amount", data.Slots[i].Number);
+        }
+        PlayerPrefs.SetInt("Slot_Number", data.Slots.Length);
+    }
+
     public bool HasEnoughtItem(ItemStack item)
     {
         for (int i = 0; i < data.Slots.Length; i++)

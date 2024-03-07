@@ -14,10 +14,22 @@ public class inventoryData : MonoBehaviour
         controll = _controll;
         slotNumber += addedSlots;
 
-        slotsInfos = new SlotsInfos[slotNumber];
-        for (int i = 0; i < slotNumber; i++) 
+        if (PlayerPrefs.HasKey("Slot_Number"))
         {
-            slotsInfos[i] = new SlotsInfos(templates[0], 0);
+            var SlotCount = PlayerPrefs.GetInt("Slot_Number");
+            slotsInfos = new SlotsInfos[SlotCount];
+            slotNumber = SlotCount;
+            for (int i = 0; i < SlotCount; i++)
+            {
+                slotsInfos[i] = new SlotsInfos(templates[PlayerPrefs.GetInt("Slot_" + i + "_Item")], PlayerPrefs.GetInt("Slot_" + i + "_Amount"));
+            }
+        } else
+        {
+            slotsInfos = new SlotsInfos[slotNumber];
+            for (int i = 0; i < slotNumber; i++)
+            {
+                slotsInfos[i] = new SlotsInfos(templates[0], 0);
+            }
         }
     }
 

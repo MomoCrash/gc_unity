@@ -1,5 +1,6 @@
+using System.Collections;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -23,19 +24,17 @@ public class Player : MonoBehaviour
 
     public bool isActionInProgress;
 
+    public bool isDeath;
+
     private void Start()
     {
         Health = MaxHealth;
         healthBar.UpdateHealthBar(Health, MaxHealth);
     }
 
-    /// <summary>
-    /// Damage the player and return if the player death
-    /// </summary>
-    /// <param name="amount"></param>
-    /// <returns></returns>
-    bool Damage(float amount, AttackElement element)
+    public void Damage(float amount, AttackElement element)
     {
+        if (isDeath) return;
         switch (element)
         {
             case AttackElement.FIRE:
@@ -50,22 +49,21 @@ public class Player : MonoBehaviour
             default: break;
         }
         Health -= amount;
-        print(Health);
         healthBar.UpdateHealthBar(Health, MaxHealth);
-        if (Health < 0) return true;
-        return false;
+        if (Health <= 0) Death();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void Death()
     {
-        if (collision.gameObject.CompareTag("Mobs"))
-        {
-            var mobIA = collision.gameObject.GetComponent<MobIA>();
-            if (Damage(mobIA.attack, mobIA.element))
-            {
-                gameObject.GetComponent<Animator>().SetTrigger("Death");
-            }
-        }
+        isDeath = true;
+        gameObject.GetComponent<Animator>().SetTrigger("Death");
+        StartCoroutine(DelayDeath());
+    }
+
+    IEnumerator DelayDeath()
+    {
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(3);
     }
 
     public void SavePlayer ()

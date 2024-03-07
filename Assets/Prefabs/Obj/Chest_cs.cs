@@ -1,9 +1,12 @@
+using System.Collections;
 using UnityEngine;
 
 public class OpenChest : MonoBehaviour
 {
     private Animator animator;
     private bool isOpen = false;
+
+    public ItemStack[] stacks;
 
     void Start()
     {
@@ -12,12 +15,24 @@ public class OpenChest : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Vérifie si le joueur entre dans le collider et si le coffre n'est pas déjà ouvert
+        // Verifie si le joueur entre dans le collider et si le coffre n'est pas ouvert
         if (other.CompareTag("Player") && !isOpen)
         {
-            print("cc");
+            foreach (var item in stacks)
+            {
+                DropItem.DropItemInWorld(GameObject.Find("Items"), gameObject.transform.position, GameObject.Find("itemexemple"), item);
+            }
             animator.SetTrigger("Open"); // Remplacez "Open" par le nom de votre trigger d'animation
             isOpen = true;
+            StartCoroutine(DestoyDelay());
         }
+    }
+
+    IEnumerator DestoyDelay()
+    {
+
+        yield return new WaitForSeconds(2);
+        Destroy(gameObject);
+
     }
 }

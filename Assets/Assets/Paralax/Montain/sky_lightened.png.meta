@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      sky_lightened_0: 1642512372790478258
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

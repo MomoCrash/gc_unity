@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      clouds_mg_1_lightened_0: -4771205007754794664
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
