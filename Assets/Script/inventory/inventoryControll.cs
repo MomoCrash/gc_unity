@@ -14,6 +14,7 @@ public class inventoryControll : MonoBehaviour
 
     private void Start()
     {
+        PlayerPrefs.DeleteAll();
         data = GetComponent<inventoryData>();
         display = GetComponent<inventoryDisplay>();
 

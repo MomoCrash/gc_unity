@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
+using Unity.VisualScripting;
 
-public class slotController : MonoBehaviour, IBeginDragHandler, IDragHandler ,IEndDragHandler, IDropHandler
+public class slotController : MonoBehaviour, IBeginDragHandler, IDragHandler ,IEndDragHandler, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public int slotID;
 
@@ -19,7 +18,9 @@ public class slotController : MonoBehaviour, IBeginDragHandler, IDragHandler ,IE
 
     [Header("Prefabs")]
     [SerializeField] private Transform dragPrefab;
+    [SerializeField] private Transform infoPrefab;
     private GameObject dragObject;
+    private GameObject infoObject;
 
     private inventoryDisplay display;
 
@@ -44,10 +45,16 @@ public class slotController : MonoBehaviour, IBeginDragHandler, IDragHandler ,IE
 
     #region DragAndDrop
 
+    private void OnMouseOver()
+    {
+        print("Salut");
+    }
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         dragObject = Instantiate(dragPrefab, transform.position, Quaternion.identity, transform).gameObject;
         Image _img = dragObject.GetComponent<Image>();
+        _img.enabled = true;
         _img.sprite = iconSprite;
         _img.color = iconSprite == null ? new Color(0, 0, 0, 0) : Color.white;
 
@@ -61,13 +68,50 @@ public class slotController : MonoBehaviour, IBeginDragHandler, IDragHandler ,IE
         display.StartDrag(slotID);
     }
 
-    public void OnDrag(PointerEventData eventData) => dragObject.transform.position = eventData.position;
+    public void OnDrag(PointerEventData eventData)
+    {
+        var worldPos = Camera.main.ScreenToWorldPoint(eventData.position);
+        dragObject.transform.position = new Vector2(worldPos.x, worldPos.y);
+    }
 
     public void OnEndDrag(PointerEventData eventData) => Destroy(dragObject);
 
     public void OnDrop(PointerEventData eventData)
     {
         display.EndDrag(slotID);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        var number = 0;
+        if (numberText == null) return;
+        if (int.TryParse(numberText.text, out number)) {
+            if (number > 0)
+            {
+                var item = display.controll.data.Slots[slotID].template;
+                infoObject = Instantiate(infoPrefab, transform.position, Quaternion.identity, transform).gameObject;
+                infoObject.GetComponentInChildren<TextMeshProUGUI>().text = item.name + "\n Resistance : " 
+                    + item.BaseResistance + " \n Earth Resistance : "
+                    + item.EarthResistance + " \n Fire Resistance : "
+                    + item.FireResistance + " \n Damage : "
+                    + item.Damage + " \n Speed : "
+                    + item.SpeedBoost + " \n Jump Added : "
+                    + item.JumpBoost + " \n Dash Added : "
+                    + item.DashBoost
+                    ;
+                var rectTransform = (RectTransform) infoObject.transform;
+                var spriteY = rectTransform.rect.height / 2;
+                var spriteX = rectTransform.rect.width / 2;
+
+                var worldPos = Camera.main.ScreenToWorldPoint(eventData.position);
+                infoObject.transform.localPosition = new Vector2(worldPos.x, worldPos.y) + new Vector2(spriteX, spriteY);
+            }
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        Destroy(infoObject);
     }
 
     #endregion

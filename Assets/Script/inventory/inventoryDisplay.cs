@@ -14,7 +14,7 @@ public class inventoryDisplay : MonoBehaviour
 
     [SerializeField] private Canvas slotCanvas; 
 
-    private inventoryControll controll;
+    public inventoryControll controll;
     public void Init(inventoryControll _controll)
     {
         controll = _controll;

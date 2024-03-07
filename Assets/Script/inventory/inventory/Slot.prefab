@@ -299,6 +299,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daa3530ef26c5dd4f98b7560b8f2bdcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotID: 0
   iconImage: {fileID: 1215255680584884019}
+  ItemType: 5
   numberText: {fileID: 4887381149053226395}
   dragPrefab: {fileID: 7511699649445587237, guid: b24e1832338d0424594a1663c9875d53, type: 3}
+  infoPrefab: {fileID: 1014057199521322579, guid: c9204b8c2ac96194eab69020349f48af, type: 3}

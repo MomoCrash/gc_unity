@@ -45,10 +45,9 @@ public class Mob_Damage : MonoBehaviour
 
     private void DestroyMob()
     {
-        foreach (var item in items)
-        {
-            DropItem.DropItemInWorld(GameObject.Find("Items"), gameObject.transform.position, GameObject.Find("itemexemple"), item);
-        }
+        var itemStack = items[Random.Range(0, items.Length)];
+        var finalStack = new ItemStack(itemStack.item, Random.Range(1, itemStack.amount));
+        DropItem.DropItemInWorld(GameObject.Find("Items"), gameObject.transform.position, GameObject.Find("itemexemple"), finalStack);
         Destroy(gameObject);
     }
 }

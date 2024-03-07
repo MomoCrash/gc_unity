@@ -34,9 +34,9 @@ Transform:
   - {fileID: 5187782644451185424}
   - {fileID: 7246175483360465253}
   - {fileID: 112110700423868993}
-  - {fileID: 4509888290225303930}
   - {fileID: 5927782323860458336}
   - {fileID: 5871117313341894013}
+  - {fileID: 4509888290225303930}
   m_Father: {fileID: 8933944284594490674}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1711227663741847783
@@ -208,6 +208,7 @@ MonoBehaviour:
   ItemType: 3
   numberText: {fileID: 0}
   dragPrefab: {fileID: 7511699649445587237, guid: b24e1832338d0424594a1663c9875d53, type: 3}
+  infoPrefab: {fileID: 0}
 --- !u!1 &2881704938591040581
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,6 +394,7 @@ MonoBehaviour:
   slots: []
   slotPrefab: {fileID: 1704680809022827340, guid: fca93f0c18ebc4b469f2a952c932b418, type: 3}
   slotCanvas: {fileID: 4959444051720146071}
+  controll: {fileID: 0}
 --- !u!114 &2982109889395259545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,6 +409,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 0}
   display: {fileID: 0}
+  noneItem: {fileID: 0}
 --- !u!1 &3176035868374582327
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,6 +606,7 @@ MonoBehaviour:
   ItemType: 0
   numberText: {fileID: 0}
   dragPrefab: {fileID: 7511699649445587237, guid: b24e1832338d0424594a1663c9875d53, type: 3}
+  infoPrefab: {fileID: 0}
 --- !u!1 &3569120745487967896
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,6 +701,7 @@ MonoBehaviour:
   ItemType: 4
   numberText: {fileID: 0}
   dragPrefab: {fileID: 7511699649445587237, guid: b24e1832338d0424594a1663c9875d53, type: 3}
+  infoPrefab: {fileID: 0}
 --- !u!1 &5613934180587787446
 GameObject:
   m_ObjectHideFlags: 0
@@ -1108,14 +1113,13 @@ Animation:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7124136997741876939}
   m_Enabled: 1
-  serializedVersion: 4
+  serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: c2ee0075c6fd4204aab94cf8c0681c15, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: c2ee0075c6fd4204aab94cf8c0681c15, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
-  m_UpdateMode: 0
   m_CullingType: 0
 --- !u!1 &7211748283521446458
 GameObject:
@@ -1211,6 +1215,7 @@ MonoBehaviour:
   ItemType: 1
   numberText: {fileID: 0}
   dragPrefab: {fileID: 7511699649445587237, guid: b24e1832338d0424594a1663c9875d53, type: 3}
+  infoPrefab: {fileID: 0}
 --- !u!1 &8120385418043727790
 GameObject:
   m_ObjectHideFlags: 0
@@ -1455,3 +1460,4 @@ MonoBehaviour:
   ItemType: 2
   numberText: {fileID: 0}
   dragPrefab: {fileID: 7511699649445587237, guid: b24e1832338d0424594a1663c9875d53, type: 3}
+  infoPrefab: {fileID: 0}

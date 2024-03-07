@@ -51,6 +51,9 @@ public class Move : MonoBehaviour
 
         player = gameObject.GetComponent<Player>();
 
+        currentJumpCount = player.MaxJumpCount;
+        currentDashCount = player.MaxDashCount;
+
         UpdateStats();
     }
 
