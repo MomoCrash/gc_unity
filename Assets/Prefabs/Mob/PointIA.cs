@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PointIA : MobIA
@@ -15,28 +13,31 @@ public class PointIA : MobIA
         currentPoint = PointB.transform;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        Vector2 point = currentPoint.position - transform.position;
-        if(currentPoint == PointB.transform)
+        float step = speed * Time.deltaTime;
+        transform.position = Vector2.MoveTowards(transform.position, currentPoint.position, step);
+
+        // Flip basé sur la direction du mouvement
+        if (currentPoint == PointB.transform && transform.localScale.x < 0 ||
+            currentPoint == PointA.transform && transform.localScale.x > 0)
         {
-            rb.velocity = new Vector2(speed, 0);
+            Flip();
         }
-        else
+
+        // Vérifie la distance avec le point courant pour changer de cible
+        if (Vector2.Distance(transform.position, currentPoint.position) < 0.5f)
         {
-            rb.velocity = new Vector2(-speed, 0);
+            currentPoint = currentPoint == PointA.transform ? PointB.transform : PointA.transform;
         }
-        Flip(speed);
-        print(Vector2.Distance(transform.position, currentPoint.position));
-        if(Vector2.Distance(transform.position, currentPoint.position) < 0.5f && currentPoint == PointB.transform)
-        {
-            currentPoint = PointA.transform;
-        }
-        if (Vector2.Distance(transform.position, currentPoint.position) < 0.5f && currentPoint == PointA.transform)
-        {
-            currentPoint = PointB.transform;
-        }
+    }
+
+    void Flip()
+    {
+        // Multiplie la valeur x de localScale par -1
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
     }
 
     private void OnDrawGizmos()
