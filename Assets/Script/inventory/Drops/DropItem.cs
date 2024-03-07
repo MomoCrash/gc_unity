@@ -24,4 +24,10 @@ public struct ItemStack
 {
     public itemTemplate item;
     public int amount;
+
+    public ItemStack(itemTemplate item, int amount)
+    {
+        this.item = item;
+        this.amount = amount;
+    }
 }

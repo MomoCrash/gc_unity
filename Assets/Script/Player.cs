@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 
@@ -23,6 +20,8 @@ public class Player : MonoBehaviour
     [Range(0f, 1f)]
     public float EarthResistance;
     [SerializeField] FloatingHealthBar healthBar;
+
+    public bool isActionInProgress;
 
     private void Start()
     {

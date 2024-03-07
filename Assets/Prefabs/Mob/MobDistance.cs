@@ -12,7 +12,7 @@ public class MobDistance : MobIA
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
        
         distance = Vector2.Distance(transform.position, Player.transform.position);

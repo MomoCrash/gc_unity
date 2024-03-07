@@ -13,7 +13,7 @@ public class ItemDrop : MonoBehaviour
         var inventory = (inventoryControll) FindAnyObjectByType(typeof(inventoryControll));
         if (inventory != null )
         {
-            inventory.AddItem(ItemStack.item, Amount);
+            inventory.AddItem(ItemStack);
         }
         Destroy(gameObject);
     }

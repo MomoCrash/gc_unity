@@ -9,6 +9,8 @@ public class inventoryControll : MonoBehaviour
 
     public inventoryDisplay display;
 
+    public itemTemplate noneItem;
+
 
     private void Start()
     {
@@ -40,17 +42,49 @@ public class inventoryControll : MonoBehaviour
         }
     }
 
-    public void AddItem(itemTemplate template, int amount)
+    public bool HasEnoughtItem(ItemStack item)
+    {
+        for (int i = 0; i < data.Slots.Length; i++)
+        {
+            if (data.GetItem(i).ItemId == item.item.ItemId && data.HasItem(i))
+            {
+                if (data.GetItem(i).Number >= item.amount)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public void RemoveItem(ItemStack item)
+    {
+        for (int i = 0; i < data.Slots.Length; i++)
+        {
+            if (data.HasItem(i))
+            {
+                if (data.GetItem(i).ItemId == item.item.ItemId && data.GetItem(i).Number > item.amount)
+                {
+                    data.SetItem(i, item.item, data.GetItem(i).Number - item.amount);
+                } else if (data.GetItem(i).ItemId == item.item.ItemId && data.GetItem(i).Number == item.amount)
+                {
+                    data.SetItem(i, noneItem, 0);
+                }
+            }
+        }
+    }
+
+    public void AddItem(ItemStack itemStack)
     {
         for (int i = 0; i < data.Slots.Length; i++)
         {
             if (!data.HasItem(i))
             {
-                data.SetItem(i, template, amount);
+                data.SetItem(i, itemStack.item, itemStack.amount);
                 break;
-            } else if (data.GetItem(i).ItemId == template.ItemId)
+            } else if (data.GetItem(i).ItemId == itemStack.item.ItemId)
             {
-                data.SetItem(i, template, amount + data.GetItem(i).Number);
+                data.SetItem(i, itemStack.item, itemStack.amount + data.GetItem(i).Number);
                 break;
             }
         }

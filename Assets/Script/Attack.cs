@@ -9,11 +9,10 @@ public class Attack : MonoBehaviour
 
     private Mob_Damage CurrentMob = null;
 
-
     private void Update()
     {
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !Player.GetComponent<Player>().isActionInProgress)
         {
             Player.GetComponent<Animator>().SetTrigger("Attack");
             if (Player.GetComponent<SpriteRenderer>().flipX)
@@ -27,6 +26,18 @@ public class Attack : MonoBehaviour
             {
                 CurrentMob.MobTakeDamage(Player.GetComponent<Player>().BaseDamage * CurrentMob.Resistance);
             }
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        Player.GetComponent<SpriteRenderer>();
+        if (!Player.GetComponent<SpriteRenderer>().flipX)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        } else
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 180);
         }
     }
 
