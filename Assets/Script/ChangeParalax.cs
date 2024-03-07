@@ -15,17 +15,20 @@ public class ChangeParalax : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (Time.time > nextChange)
+        if (collision.gameObject.CompareTag("Player"))
         {
-            Destroy(Camera.GetChild(0).gameObject);
-
-            var ParalaxObject = GameObject.Instantiate(Paralax, Camera);
-            foreach (var child in ParalaxObject.GetComponentsInChildren<Paralax>())
+            if (Time.time > nextChange)
             {
-                child.cam = Camera.gameObject;
-                child.player = Player;
+                Destroy(Camera.GetChild(0).gameObject);
+
+                var ParalaxObject = GameObject.Instantiate(Paralax, Camera);
+                foreach (var child in ParalaxObject.GetComponentsInChildren<Paralax>())
+                {
+                    child.cam = Camera.gameObject;
+                    child.player = Player;
+                }
+                nextChange = Time.time + Cooldown;
             }
-            nextChange = Time.time + Cooldown;
-        }
+        } 
     }
 }
