@@ -1,3 +1,4 @@
+
 using System.Collections;
 using UnityEngine;
 
@@ -13,10 +14,24 @@ public class RandomSpawner2D : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(SpawnRoutine());
+    
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            StartCoroutine(SpawnRoutine());
+        }
+    }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            StopCoroutine(SpawnRoutine());
+        }
+    }
     private IEnumerator SpawnRoutine()
     {
         Collider2D collider = GetComponent<Collider2D>();
