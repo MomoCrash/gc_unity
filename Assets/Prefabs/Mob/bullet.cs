@@ -9,10 +9,12 @@ public class bullet : MonoBehaviour
 
     private GameObject Player;
     private Rigidbody2D rb;
+    public float rotationSpeed = 1.0f;
 
 
     void Start()
     {
+        transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
         rb = GetComponent<Rigidbody2D>();
         Player = GameObject.FindGameObjectWithTag("Player");
 
@@ -20,13 +22,22 @@ public class bullet : MonoBehaviour
         rb.velocity = new Vector2(direction.x, direction.y).normalized * force;
 
     }
+    void FixedUpdate()
+    {
+        transform.Rotate(0, 0 , rotationSpeed);
+    }
+
     private void Awake()
     {
         Destroy(gameObject, life);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<Player>().Damage(5f, AttackElement.BASIC);
+        }
     }
+
 }
