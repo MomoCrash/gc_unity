@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.Rendering.VolumeComponent;
 
 public class Mob_Damage : MonoBehaviour
 {
@@ -11,9 +12,11 @@ public class Mob_Damage : MonoBehaviour
 
     [Range(0f, 1f)]
     public float Resistance;
-   
+
     public float currentHealth = 100;
     public float MaxHealth = 100;
+
+    bool InDeath = false;
 
     [SerializeField] FloatingHealthBar healthBar;
 
@@ -32,8 +35,9 @@ public class Mob_Damage : MonoBehaviour
     {
         currentHealth -= damage;
         healthBar.UpdateHealthBar(currentHealth, MaxHealth);
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && !InDeath)
         {
+            InDeath = true;
             MobIA.MobDeath();
             Invoke("DestroyMob", 0.65f);
         }
