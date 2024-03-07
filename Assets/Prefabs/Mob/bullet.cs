@@ -32,8 +32,12 @@ public class bullet : MonoBehaviour
         Destroy(gameObject, life);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<Player>().Damage(5f, AttackElement.BASIC);
+        }
     }
+
 }
