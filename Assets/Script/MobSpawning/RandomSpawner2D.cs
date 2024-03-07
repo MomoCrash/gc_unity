@@ -6,11 +6,16 @@ public class RandomSpawner2D : MonoBehaviour
     public GameObject objectToSpawn;
     public float spawnIntervalMin = 4f;
     public float spawnIntervalMax = 10f;
+    private int currentMobCount = 0;
+    public int maxMobCount = 5;
+
+    public GameObject groundCheck;
 
     private void Start()
     {
         StartCoroutine(SpawnRoutine());
     }
+
 
     private IEnumerator SpawnRoutine()
     {
@@ -26,47 +31,57 @@ public class RandomSpawner2D : MonoBehaviour
             float waitTime = Random.Range(spawnIntervalMin, spawnIntervalMax);
             yield return new WaitForSeconds(waitTime);
 
-            int spawnCount = Random.Range(1, 3); // Générer 1 ou 2 objets
-            for (int i = 0; i < spawnCount; i++)
+            if (currentMobCount < maxMobCount)
             {
-                Vector2 randomPosition = GenerateSpawnPosition(collider);
-                if (randomPosition != Vector2.zero) // Vérifie si une position valide a été trouvée
+                int spawnCount = Random.Range(1, 3);
+                for (int i = 0; i < spawnCount && currentMobCount < maxMobCount; i++)
                 {
-                    Instantiate(objectToSpawn, randomPosition, Quaternion.identity);
+                    Vector2 randomPosition = new Vector2(
+                        Random.Range(collider.bounds.min.x, collider.bounds.max.x),
+                        Random.Range(collider.bounds.min.y, collider.bounds.max.y)
+                    );
+
+                    //Deplace un objet invisible qui nous sert de repère de point de spawn
+                    groundCheck.transform.position = randomPosition;
+                    //OverlapCircle = crée un raycast en rond et renvoi une list de tous les objets touché
+                    Collider2D[] touchedCollider = Physics2D.OverlapCircleAll(groundCheck.transform.position, 1f);
+
+                    bool canSpawn = true;
+
+                    //Si a touché des colliders
+                    if (touchedCollider.Length > 0)
+                    {
+                        foreach (Collider2D touched in touchedCollider)
+                        {
+                            //Regarde leur tags
+                            if (touched.gameObject.tag == "Ground" || touched.gameObject.tag == "wall" || touched.gameObject.tag == "UnderGround")
+                            {
+
+                                //Si est en contact avec un mur, sol ou sous sol, ne fais pas spawn l'ennemi
+                                print("essaie de spawn dans un mur");
+                                canSpawn = false;
+                                break;
+                            }
+                        }
+                    }
+
+                    if (canSpawn)
+                    {
+                        GameObject spawnedMob = Instantiate(objectToSpawn, randomPosition, Quaternion.identity) as GameObject;
+                        spawnedMob.transform.parent = transform;
+                        currentMobCount++;
+                    }
                 }
             }
         }
     }
 
-    private Vector2 GenerateSpawnPosition(Collider2D collider)
+
+    public void DecrementMobCount()
     {
-        // Initialiser randomPosition à Vector2.zero avant la boucle
-        Vector2 randomPosition = Vector2.zero;
-        bool positionFound = false;
-
-        for (int tries = 0; tries < 100; tries++)
+        if (currentMobCount > 0)
         {
-            Vector2 potentialPosition = new Vector2(
-                Random.Range(collider.bounds.min.x, collider.bounds.max.x),
-                Random.Range(collider.bounds.min.y, collider.bounds.max.y)
-            );
-
-            // Vérifie s'il y a des colliders à cette position (comme des murs ou des obstacles)
-            if (!Physics2D.OverlapCircle(potentialPosition, 0.5f)) // Ajustez le rayon selon la taille de vos mobs
-            {
-                randomPosition = potentialPosition; // Assigner la position valide trouvée à randomPosition
-                positionFound = true;
-                break; // Sortir de la boucle si une position valide est trouvée
-            }
+            currentMobCount--;
         }
-
-        if (!positionFound)
-        {
-            Debug.LogWarning("Impossible de trouver une position valide pour le spawn après 100 essais");
-            // Vous pouvez choisir de gérer différemment l'échec de trouver une position valide
-        }
-
-        return randomPosition; // Retourne la position trouvée ou Vector2.zero si aucune position valide n'est trouvée
     }
-
 }
