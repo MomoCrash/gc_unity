@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 2610474651845206401}
   m_Layer: 3
   m_Name: GroundMobProj Variant
-  m_TagString: Untagged
+  m_TagString: Mobs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -266,6 +266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpawnPoint: {fileID: 191100603253146578}
   bulletPrefab: {fileID: 4452662215243952355, guid: c4d790b182480704bb32f3b965718578, type: 3}
+  shootingDistance: 5
 --- !u!95 &2610474651845206401
 Animator:
   serializedVersion: 5

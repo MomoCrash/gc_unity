@@ -48,8 +48,8 @@ public class ShopDisplay : MonoBehaviour
         {
             var itemObject = GameObject.Instantiate(slotTemplate, shopContainer);
 
-            itemObject.transform.GetComponentInChildren<TextMeshProUGUI>().text = itemShop.reward.item.name + "x" + itemShop.reward.amount;
-            itemObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = itemShop.cost.item.name + "x" + itemShop.cost.amount;
+            itemObject.transform.GetComponentInChildren<TextMeshProUGUI>().text = itemShop.reward.item.itemName + (itemShop.reward.amount > 1 ? "x" + itemShop.reward.amount : "") ;
+            itemObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = itemShop.cost.item.itemName + "x" + itemShop.cost.amount;
             itemObject.transform.GetChild(0).GetComponent<Image>().sprite = itemShop.reward.item.Icon;
             itemObject.transform.GetComponent<Button>().onClick.AddListener(() =>
             {

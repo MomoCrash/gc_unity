@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 131cd970e923497418ca1e50dd5d5925, type: 3}
-  m_Name: UltimateArmor
+  m_Name: HelmetStrong
   m_EditorClassIdentifier: 
-  itemName: Ultimate Armor
-  id: 105
-  icon: {fileID: 21300000, guid: 41aa28fb2d6d8e049a0988b7282b4e84, type: 3}
+  itemName: Casque en Os
+  id: 9
+  icon: {fileID: 21300000, guid: e51706c1fd5c46f46bc6909e39859db5, type: 3}
   stack: 1
-  type: 4
-  BaseResistance: 0.501
-  EarthResistance: 0.501
-  FireResistance: 0.501
-  Health: 1000
-  Damage: 30
-  DashBoost: 2
+  type: 3
+  BaseResistance: 0.178
+  EarthResistance: 0.049
+  FireResistance: 0.119
+  Health: 100
+  Damage: 3
+  DashBoost: 0
   JumpBoost: 0
-  SpeedBoost: 1.57
+  SpeedBoost: 0.59

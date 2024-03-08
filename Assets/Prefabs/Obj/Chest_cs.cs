@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class OpenChest : MonoBehaviour
 {
+    public AudioSource Open;
+
     private Animator animator;
     private bool isOpen = false;
 
@@ -22,6 +24,7 @@ public class OpenChest : MonoBehaviour
             {
                 DropItem.DropItemInWorld(GameObject.Find("Items"), gameObject.transform.position, GameObject.Find("itemexemple"), item);
             }
+            Open.Play();
             animator.SetTrigger("Open"); // Remplacez "Open" par le nom de votre trigger d'animation
             isOpen = true;
             StartCoroutine(DestoyDelay());

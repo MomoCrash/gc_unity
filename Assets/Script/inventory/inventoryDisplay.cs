@@ -63,7 +63,7 @@ public class inventoryDisplay : MonoBehaviour
 
         }
 
-        PlayerStats.Health = totalStatHealth;
+        PlayerStats.MaxHealth = totalStatHealth;
         PlayerStats.BaseDamage = totalStatDamage;
         PlayerStats.FireResistance = totalStatFireResistance;
         PlayerStats.EarthResistance = totalStatEarthResistance;

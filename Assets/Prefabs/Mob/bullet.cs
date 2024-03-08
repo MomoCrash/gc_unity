@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class bullet : MonoBehaviour
 {
+    public float Damage;
+
     public float life = 3;
     public float force;
 
@@ -36,7 +38,7 @@ public class bullet : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<Player>().Damage(5f, AttackElement.BASIC);
+            collision.gameObject.GetComponent<Player>().Damage(Damage, AttackElement.EARTH);
         }
     }
 

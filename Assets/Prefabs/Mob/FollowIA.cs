@@ -45,15 +45,6 @@ public class FollowIA : MobIA
         }
     }
 
-    private void FixedUpdate()
-    {
-        if (Time.time >= nextAttack && canAttack)
-        {
-            Player.Damage(attack, element);
-            nextAttack = Time.time + AttackSpeed;
-        }
-    }
-
     // Dessiner le raycast dans l'�diteur pour le d�bogage
     void OnDrawGizmosSelected()
     {
@@ -67,8 +58,7 @@ public class FollowIA : MobIA
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            canAttack = true;
-            nextAttack = Time.time + AttackSpeed;
+            Player.Damage(attack, element);
         }
         if (collision.gameObject.CompareTag("Obstacle"))
         {

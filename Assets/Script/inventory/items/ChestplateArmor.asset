@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 131cd970e923497418ca1e50dd5d5925, type: 3}
   m_Name: ChestplateArmor
   m_EditorClassIdentifier: 
-  itemName: Strong Armor
-  id: 100
+  itemName: Plastron en Os
+  id: 3
   icon: {fileID: 21300000, guid: b01f8abff8068da4393526ca0d3388bf, type: 3}
   stack: 1
   type: 4

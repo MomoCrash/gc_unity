@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class NPC : MonoBehaviour
 {
+
     public ShopDisplay shop;
     public ShopItem[] sellableItems;
 

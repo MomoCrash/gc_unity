@@ -67,6 +67,9 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
+    m_FinalGather: 0
+    m_FinalGatherFiltering: 1
+    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 1
@@ -244,10 +247,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 686243120}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 38, y: 256}
-  m_SizeDelta: {x: 141.64, y: 112.3538}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -74.7}
+  m_SizeDelta: {x: 141.64, y: 112.35379}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &165672054
 MonoBehaviour:
@@ -321,7 +324,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 34, y: 48}
+  m_AnchoredPosition: {x: 0, y: 35.5}
   m_SizeDelta: {x: 750, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &206098305
@@ -344,7 +347,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: YOU DIED
+  m_text: Vous etes mort...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 701c57926ba210d46a85844db440dca2, type: 2}
   m_sharedMaterial: {fileID: -3459929296498953448, guid: 701c57926ba210d46a85844db440dca2, type: 2}
@@ -458,7 +461,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 34, y: -31}
+  m_AnchoredPosition: {x: 0, y: -41}
   m_SizeDelta: {x: 175, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &259877533
@@ -567,7 +570,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c8f1833972b78246871d24c64d16305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
 --- !u!1 &686243119
 GameObject:
   m_ObjectHideFlags: 0
@@ -704,7 +706,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: QUIT
+  m_text: QUITTER
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 701c57926ba210d46a85844db440dca2, type: 2}
   m_sharedMaterial: {fileID: -3459929296498953448, guid: 701c57926ba210d46a85844db440dca2, type: 2}
@@ -830,7 +832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -886,7 +888,7 @@ RectTransform:
   m_Pivot: {x: 0, y: 0}
 --- !u!95 &920021149
 Animator:
-  serializedVersion: 7
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -900,7 +902,6 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -1031,7 +1032,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: RESPAWN
+  m_text: REAPARAITRE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 701c57926ba210d46a85844db440dca2, type: 2}
   m_sharedMaterial: {fileID: -3459929296498953448, guid: 701c57926ba210d46a85844db440dca2, type: 2}
@@ -1145,7 +1146,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 34, y: -96}
+  m_AnchoredPosition: {x: 0, y: -151.5}
   m_SizeDelta: {x: 175, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2122889238

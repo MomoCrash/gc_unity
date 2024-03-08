@@ -102,7 +102,6 @@ CircleCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1571996045782839319}
   m_Enabled: 1
-  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -126,9 +125,9 @@ CircleCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
+  m_UsedByComposite: 0
   m_Offset: {x: -0.007155657, y: 0.0002425909}
+  serializedVersion: 2
   m_Radius: 0.3
 --- !u!50 &41018043894679829
 Rigidbody2D:
@@ -165,7 +164,6 @@ CircleCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1571996045782839319}
   m_Enabled: 1
-  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -189,9 +187,9 @@ CircleCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
+  m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
   m_Radius: 0.2
 --- !u!114 &1875805473849022185
 MonoBehaviour:
@@ -207,9 +205,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items: []
   MobIA: {fileID: 7249248669653175971}
+  Resistance: 0
   currentHealth: 100
   MaxHealth: 100
-  Choosedamage: 5
   healthBar: {fileID: 2856587486694027961}
 --- !u!114 &1379722272648752810
 MonoBehaviour:
@@ -239,6 +237,7 @@ MonoBehaviour:
   speed: 5
   distanceBetween: 0
   attack: 0
+  element: 0
   jumpForce: 0
   obstacleLayer:
     serializedVersion: 2
@@ -257,7 +256,7 @@ MonoBehaviour:
   distanceToStop: 1
 --- !u!95 &2298993718264580411
 Animator:
-  serializedVersion: 7
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -271,7 +270,6 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1

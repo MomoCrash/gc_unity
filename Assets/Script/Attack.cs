@@ -9,18 +9,21 @@ public class Attack : MonoBehaviour
 
     private Mob_Damage CurrentMob = null;
 
+    public AudioSource AttackSound;
+
     private void Update()
     {
 
         if (Input.GetMouseButtonDown(0) && !Player.GetComponent<Player>().isActionInProgress)
         {
+            AttackSound.PlayOneShot(AttackSound.clip, 0.2f);
             Player.GetComponent<Animator>().SetTrigger("Attack");
             if (Player.GetComponent<SpriteRenderer>().flipX)
             {
-                Player.GetComponent<Rigidbody2D>().AddForce(new Vector3(-Player.GetComponent<Move>().DashForce/3, -1, 0));
+                Player.GetComponent<Rigidbody2D>().AddForce(new Vector3(-Player.GetComponent<Move>().DashForce/5, -1, 0));
             } else
             {
-                Player.GetComponent<Rigidbody2D>().AddForce(new Vector3(Player.GetComponent<Move>().DashForce/3, -1, 0));
+                Player.GetComponent<Rigidbody2D>().AddForce(new Vector3(Player.GetComponent<Move>().DashForce/5, -1, 0));
             }
             if (CurrentMob != null)
             {

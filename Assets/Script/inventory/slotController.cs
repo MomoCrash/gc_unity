@@ -19,8 +19,8 @@ public class slotController : MonoBehaviour, IBeginDragHandler, IDragHandler ,IE
     [Header("Prefabs")]
     [SerializeField] private Transform dragPrefab;
     [SerializeField] private Transform infoPrefab;
-    private GameObject dragObject;
-    private GameObject infoObject;
+    public GameObject dragObject;
+    public GameObject infoObject;
 
     private inventoryDisplay display;
 
@@ -44,11 +44,6 @@ public class slotController : MonoBehaviour, IBeginDragHandler, IDragHandler ,IE
     }
 
     #region DragAndDrop
-
-    private void OnMouseOver()
-    {
-        print("Salut");
-    }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -90,13 +85,14 @@ public class slotController : MonoBehaviour, IBeginDragHandler, IDragHandler ,IE
             {
                 var item = display.controll.data.Slots[slotID].template;
                 infoObject = Instantiate(infoPrefab, transform.position, Quaternion.identity, transform).gameObject;
-                infoObject.GetComponentInChildren<TextMeshProUGUI>().text = item.name + "\n Resistance : " 
-                    + item.BaseResistance + " \n Earth Resistance : "
-                    + item.EarthResistance + " \n Fire Resistance : "
-                    + item.FireResistance + " \n Damage : "
-                    + item.Damage + " \n Speed : "
-                    + item.SpeedBoost + " \n Jump Added : "
-                    + item.JumpBoost + " \n Dash Added : "
+                infoObject.GetComponentInChildren<TextMeshProUGUI>().text = item.itemName + "\n Vie : " 
+                    + item.Health + " \n Resistance : "
+                    + item.BaseResistance + " \n Resistance T : "
+                    + item.EarthResistance + " \n Resistance F : "
+                    + item.FireResistance + " \n Degats : "
+                    + item.Damage + " \n Vitesse : "
+                    + item.SpeedBoost + " \n Saut ajoues : "
+                    + item.JumpBoost + " \n Dash ajoutes : "
                     + item.DashBoost
                     ;
                 var rectTransform = (RectTransform) infoObject.transform;

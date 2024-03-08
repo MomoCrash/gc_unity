@@ -371,7 +371,24 @@ MonoBehaviour:
   slotsInfos: []
   templates:
   - {fileID: 11400000, guid: e76a765f5d9a0d1448e36b2e7df5c435, type: 2}
+  - {fileID: 11400000, guid: 99edd9a2996857443a90ec322b797268, type: 2}
+  - {fileID: 11400000, guid: 8ebf6197a25349145a445abd55f9079d, type: 2}
+  - {fileID: 11400000, guid: b773132e1e981404d9811390def28b8c, type: 2}
+  - {fileID: 11400000, guid: 0f6beacea3f2d6e43bfbe727f1276243, type: 2}
+  - {fileID: 11400000, guid: 0dca6822e921ca546a00e9e352939341, type: 2}
+  - {fileID: 11400000, guid: a7e3f8d3c2ccbe04796418cc4176103b, type: 2}
+  - {fileID: 11400000, guid: 9b755137a3b4cf94988faade078edc2b, type: 2}
+  - {fileID: 11400000, guid: e44c6f4c2c4f1a04ba8bfc3e2f858e18, type: 2}
+  - {fileID: 11400000, guid: 24b0a3a0813aa06488dfd0ccd8928beb, type: 2}
   - {fileID: 11400000, guid: 7e7ef477d7e2ca9459d19eeb36347417, type: 2}
+  - {fileID: 11400000, guid: ffb883097c2935942b2596c6cc0dd37b, type: 2}
+  - {fileID: 11400000, guid: 04025dc6118a53648a9f2ba792c45a10, type: 2}
+  - {fileID: 11400000, guid: 9073dca9c70ec284aa69b7358ad89834, type: 2}
+  - {fileID: 11400000, guid: 6197bdf896af12e4e8b3ff2b38789cb2, type: 2}
+  - {fileID: 11400000, guid: fd78de426ff483b49adfc7d60afdff79, type: 2}
+  - {fileID: 11400000, guid: 42105e9db46827647b5e01944b0c3d8a, type: 2}
+  - {fileID: 11400000, guid: d42764bb8cc8f6d4288e724aa94a4094, type: 2}
+  - {fileID: 11400000, guid: 0f1f531d2e2d8f84b9c83f03dd8f4413, type: 2}
 --- !u!114 &2598596579978982653
 MonoBehaviour:
   m_ObjectHideFlags: 0

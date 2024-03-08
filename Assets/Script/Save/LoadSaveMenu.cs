@@ -5,15 +5,16 @@ using UnityEngine;
 public class LoadMenu : MonoBehaviour
 {
 
+    public static bool GameIsPaused = false;
+    public GameObject SaveMenu;
+
     private void Start()
     {
         SaveMenu.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
     }
-    public static bool GameIsPaused = false;
-    public GameObject SaveMenu;
-    
+
     void Update()
     {
         if (Input.GetKeyUp(KeyCode.E))

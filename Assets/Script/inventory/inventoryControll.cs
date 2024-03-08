@@ -14,12 +14,14 @@ public class inventoryControll : MonoBehaviour
 
     private void Start()
     {
-        PlayerPrefs.DeleteAll();
         data = GetComponent<inventoryData>();
         display = GetComponent<inventoryDisplay>();
 
         data.Init(this);
         display.Init(this);
+
+        display.UpdateDisplay(data.Slots);
+        display.PlayerStats.Health = display.PlayerStats.MaxHealth;
     }
 
     public void Update()
@@ -30,6 +32,18 @@ public class inventoryControll : MonoBehaviour
             {
                 GetComponent<Image>().enabled = false;
                 transform.GetChild(0).gameObject.SetActive(false);
+
+                foreach (var slot in display.slots)
+                {
+                    if (slot.dragObject != null)
+                    {
+                        Destroy(slot.dragObject);
+                    }
+                    if (slot.infoObject != null)
+                    {
+                        Destroy(slot.infoObject);
+                    }
+                }
 
                 display.UpdateDisplay(data.Slots);
             } else

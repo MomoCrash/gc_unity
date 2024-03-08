@@ -148,6 +148,10 @@ PrefabInstance:
       propertyPath: m_Points.Array.data[15].y
       value: 2.7996073
       objectReference: {fileID: 0}
+    - target: {fileID: 3982438957434019421, guid: c4d790b182480704bb32f3b965718578, type: 3}
+      propertyPath: Damage
+      value: 6.07
+      objectReference: {fileID: 0}
     - target: {fileID: 4452662215243952355, guid: c4d790b182480704bb32f3b965718578, type: 3}
       propertyPath: m_Name
       value: Bullet Variant

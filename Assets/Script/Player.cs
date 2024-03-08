@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
 
+    public AudioSource DeathSound;
+
+    public float HealTime;
+    public float AddWaitTime;
+
     public float Health;
     public float MaxHealth;
 
@@ -30,6 +35,7 @@ public class Player : MonoBehaviour
     {
         Health = MaxHealth;
         healthBar.UpdateHealthBar(Health, MaxHealth);
+        StartCoroutine(HealhPlayer());
     }
 
     public void Damage(float amount, AttackElement element)
@@ -48,6 +54,7 @@ public class Player : MonoBehaviour
                 break;
             default: break;
         }
+        AddWaitTime = 4f;
         Health -= amount;
         healthBar.UpdateHealthBar(Health, MaxHealth);
         if (Health <= 0) Death();
@@ -57,6 +64,7 @@ public class Player : MonoBehaviour
     {
         isDeath = true;
         gameObject.GetComponent<Animator>().SetTrigger("Death");
+        DeathSound.Play();
         StartCoroutine(DelayDeath());
     }
 
@@ -64,6 +72,23 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene(3);
+    }
+    
+    IEnumerator HealhPlayer()
+    {
+        if (Health > MaxHealth)
+        {
+            Health = MaxHealth;
+        }
+        yield return new WaitForSeconds(HealTime);
+        if (Health+MaxHealth/1000 <= MaxHealth)
+        {
+            Health += MaxHealth / 1000;
+            healthBar.UpdateHealthBar(Health, MaxHealth);
+            yield return new WaitForSeconds(AddWaitTime);
+            AddWaitTime = 0;
+        }
+        StartCoroutine(HealhPlayer());
     }
 
     public void SavePlayer ()

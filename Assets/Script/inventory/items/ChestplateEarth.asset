@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 131cd970e923497418ca1e50dd5d5925, type: 3}
   m_Name: ChestplateEarth
   m_EditorClassIdentifier: 
-  itemName: Earth Chestplate
-  id: 102
+  itemName: Plastron en Pierre
+  id: 4
   icon: {fileID: 21300000, guid: f96bdfab53ec6724e9685b02e69ec5d4, type: 3}
   stack: 1
   type: 4
   BaseResistance: 0
   EarthResistance: 0.207
-  FireResistance: 0
+  FireResistance: 0.211
   Health: 120
   Damage: 1
   DashBoost: 1

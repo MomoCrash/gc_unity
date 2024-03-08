@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 131cd970e923497418ca1e50dd5d5925, type: 3}
+  m_Name: ShieldBase
+  m_EditorClassIdentifier: 
+  itemName: Bouclier d'Os
+  id: 13
+  icon: {fileID: 21300000, guid: 6c78d93418db3ea4189199d7a2ac1e91, type: 3}
+  stack: 1
+  type: 1
+  BaseResistance: 0.13
+  EarthResistance: 0.124
+  FireResistance: 0.119
+  Health: 100
+  Damage: 5
+  DashBoost: 0
+  JumpBoost: 0
+  SpeedBoost: 0

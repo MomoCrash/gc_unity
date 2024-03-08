@@ -6,7 +6,7 @@ public class itemTemplate : ScriptableObject
 {
     [Header("Main infos")]
 
-    [SerializeField] private string itemName;
+    [SerializeField] public string itemName;
 
     [SerializeField] private int id;
 

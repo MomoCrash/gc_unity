@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
+    public AudioSource JumpSound;
+
     [Header("Movement")]
     public float SprintSpeed = 1.3f;
     float MoveSpeed;
@@ -136,12 +138,14 @@ public class Move : MonoBehaviour
 
         if (CanJump)
         {
+            JumpSound.PlayOneShot(JumpSound.clip, .3f);
             Jump(new Vector3(0, jump * JumpForce * (1 + currentJumpCount / MaxJumpCount), 0), .3f);
             return;
         }
 
         if (CanWallJump)
         {
+            JumpSound.PlayOneShot(JumpSound.clip, .3f);
             Jump(new Vector3(horz * DashForce * 1, jump * JumpForce * 2, 0), .3f);
             return;
         }

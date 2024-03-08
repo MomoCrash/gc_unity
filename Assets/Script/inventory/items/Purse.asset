@@ -12,8 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 131cd970e923497418ca1e50dd5d5925, type: 3}
   m_Name: Purse
   m_EditorClassIdentifier: 
-  itemName: Purse
-  id: 2
+  itemName: "Sac de Pi\xE8ces"
+  id: 12
   icon: {fileID: 8334976595455615866, guid: 19e112e86d8b0c846a8c7b0823eb3d95, type: 3}
   stack: 64
   type: 5
+  BaseResistance: 0
+  EarthResistance: 0
+  FireResistance: 0
+  Health: 0
+  Damage: 0
+  DashBoost: 0
+  JumpBoost: 0
+  SpeedBoost: 0

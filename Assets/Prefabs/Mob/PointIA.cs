@@ -46,4 +46,12 @@ public class PointIA : MobIA
         Gizmos.DrawWireSphere(PointB.transform.position, 0.5f);
         Gizmos.DrawLine(PointA.transform.position, PointB.transform.position);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Player.Damage(attack, element);
+        }
+    }
 }
